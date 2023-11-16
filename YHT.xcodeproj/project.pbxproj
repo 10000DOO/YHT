@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69280EE42B0673B000B448F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69280EE32B0673B000B448F1 /* ContentView.swift */; };
 		6962A0C62B03045500BFA8DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C52B03045500BFA8DE /* AppDelegate.swift */; };
 		6962A0C82B03045500BFA8DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C72B03045500BFA8DE /* SceneDelegate.swift */; };
 		6962A0CA2B03045500BFA8DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C92B03045500BFA8DE /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		69280EE32B0673B000B448F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6962A0C22B03045500BFA8DE /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6962A0C52B03045500BFA8DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6962A0C72B03045500BFA8DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69280EE52B06743100B448F1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6962A0CB2B03045500BFA8DE /* Main.storyboard */,
+				6962A0CE2B03045600BFA8DE /* Assets.xcassets */,
+				6962A0D02B03045600BFA8DE /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		69280EE62B06744500B448F1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				69280EE52B06743100B448F1 /* Resource */,
+				6962A0D32B03045600BFA8DE /* Info.plist */,
+				6962A0C52B03045500BFA8DE /* AppDelegate.swift */,
+				6962A0C72B03045500BFA8DE /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		69280EE72B0674DC00B448F1 /* UnityConfig */ = {
+			isa = PBXGroup;
+			children = (
+				69D343992B03059E00A2EFC7 /* UnityManager.swift */,
+			);
+			path = UnityConfig;
+			sourceTree = "<group>";
+		};
+		69280EE82B06755D00B448F1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				69280EE92B06756400B448F1 /* Unity */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		69280EE92B06756400B448F1 /* Unity */ = {
+			isa = PBXGroup;
+			children = (
+				6962A0C92B03045500BFA8DE /* ViewController.swift */,
+				69280EE32B0673B000B448F1 /* ContentView.swift */,
+			);
+			path = Unity;
+			sourceTree = "<group>";
+		};
 		6962A0B92B03045500BFA8DE = {
 			isa = PBXGroup;
 			children = (
@@ -124,14 +172,9 @@
 		6962A0C42B03045500BFA8DE /* YHT */ = {
 			isa = PBXGroup;
 			children = (
-				6962A0C52B03045500BFA8DE /* AppDelegate.swift */,
-				6962A0C72B03045500BFA8DE /* SceneDelegate.swift */,
-				6962A0C92B03045500BFA8DE /* ViewController.swift */,
-				6962A0CB2B03045500BFA8DE /* Main.storyboard */,
-				6962A0CE2B03045600BFA8DE /* Assets.xcassets */,
-				6962A0D02B03045600BFA8DE /* LaunchScreen.storyboard */,
-				6962A0D32B03045600BFA8DE /* Info.plist */,
-				69D343992B03059E00A2EFC7 /* UnityManager.swift */,
+				69280EE62B06744500B448F1 /* Application */,
+				69280EE72B0674DC00B448F1 /* UnityConfig */,
+				69280EE82B06755D00B448F1 /* Presentation */,
 			);
 			path = YHT;
 			sourceTree = "<group>";
@@ -296,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6962A0CA2B03045500BFA8DE /* ViewController.swift in Sources */,
+				69280EE42B0673B000B448F1 /* ContentView.swift in Sources */,
 				69D3439A2B03059E00A2EFC7 /* UnityManager.swift in Sources */,
 				6962A0C62B03045500BFA8DE /* AppDelegate.swift in Sources */,
 				6962A0C82B03045500BFA8DE /* SceneDelegate.swift in Sources */,
@@ -482,7 +526,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26L95KN5AP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_FILE = YHT/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -511,7 +555,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 26L95KN5AP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_FILE = YHT/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
