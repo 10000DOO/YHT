@@ -7,48 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69280EE42B0673B000B448F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69280EE32B0673B000B448F1 /* ContentView.swift */; };
-		6962A0C62B03045500BFA8DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C52B03045500BFA8DE /* AppDelegate.swift */; };
-		6962A0C82B03045500BFA8DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C72B03045500BFA8DE /* SceneDelegate.swift */; };
-		6962A0CA2B03045500BFA8DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0C92B03045500BFA8DE /* ViewController.swift */; };
-		6962A0CD2B03045500BFA8DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6962A0CB2B03045500BFA8DE /* Main.storyboard */; };
-		6962A0CF2B03045600BFA8DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6962A0CE2B03045600BFA8DE /* Assets.xcassets */; };
-		6962A0D22B03045600BFA8DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6962A0D02B03045600BFA8DE /* LaunchScreen.storyboard */; };
-		6962A0DD2B03045600BFA8DE /* YHTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0DC2B03045600BFA8DE /* YHTTests.swift */; };
-		6962A0E72B03045600BFA8DE /* YHTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0E62B03045600BFA8DE /* YHTUITests.swift */; };
-		6962A0E92B03045600BFA8DE /* YHTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962A0E82B03045600BFA8DE /* YHTUITestsLaunchTests.swift */; };
-		69D3439A2B03059E00A2EFC7 /* UnityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D343992B03059E00A2EFC7 /* UnityManager.swift */; };
-		69D3439E2B03062900A2EFC7 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D3439C2B03062900A2EFC7 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		69D343A22B03063900A2EFC7 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D343A02B03063900A2EFC7 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		69D343A52B03065300A2EFC7 /* Vuforia in Resources */ = {isa = PBXBuildFile; fileRef = 69D343A42B03065300A2EFC7 /* Vuforia */; };
+		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
+		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
+		69B362A72B07B37500714B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B362A62B07B37500714B3B /* Assets.xcassets */; };
+		69B362AA2B07B37500714B3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B362A92B07B37500714B3B /* Preview Assets.xcassets */; };
+		69B362B42B07B37500714B3B /* YHTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362B32B07B37500714B3B /* YHTTests.swift */; };
+		69B362BE2B07B37500714B3B /* YHTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362BD2B07B37500714B3B /* YHTUITests.swift */; };
+		69B362C02B07B37500714B3B /* YHTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */; };
+		69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362CC2B07B38C00714B3B /* UnityManager.swift */; };
+		69EF496E2B07B486003DF6A9 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF496C2B07B486003DF6A9 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49702B07B493003DF6A9 /* UnityDriver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */; };
+		69EF49792B07B5D7003DF6A9 /* Vuforia in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49782B07B5D7003DF6A9 /* Vuforia */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6962A0D92B03045600BFA8DE /* PBXContainerItemProxy */ = {
+		69B362B02B07B37500714B3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6962A0BA2B03045500BFA8DE /* Project object */;
+			containerPortal = 69B362972B07B37400714B3B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6962A0C12B03045500BFA8DE;
+			remoteGlobalIDString = 69B3629E2B07B37400714B3B;
 			remoteInfo = YHT;
 		};
-		6962A0E32B03045600BFA8DE /* PBXContainerItemProxy */ = {
+		69B362BA2B07B37500714B3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6962A0BA2B03045500BFA8DE /* Project object */;
+			containerPortal = 69B362972B07B37400714B3B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6962A0C12B03045500BFA8DE;
+			remoteGlobalIDString = 69B3629E2B07B37400714B3B;
 			remoteInfo = YHT;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		69D3439F2B03062900A2EFC7 /* Embed Frameworks */ = {
+		69EF496F2B07B486003DF6A9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69D3439E2B03062900A2EFC7 /* UnityFramework.framework in Embed Frameworks */,
-				69D343A22B03063900A2EFC7 /* VuforiaEngine.framework in Embed Frameworks */,
+				69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */,
+				69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */,
+				69EF496E2B07B486003DF6A9 /* UnityFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,42 +56,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		69280EE32B0673B000B448F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6962A0C22B03045500BFA8DE /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6962A0C52B03045500BFA8DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6962A0C72B03045500BFA8DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6962A0C92B03045500BFA8DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6962A0CC2B03045500BFA8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6962A0CE2B03045600BFA8DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6962A0D12B03045600BFA8DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6962A0D32B03045600BFA8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6962A0D82B03045600BFA8DE /* YHTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6962A0DC2B03045600BFA8DE /* YHTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTTests.swift; sourceTree = "<group>"; };
-		6962A0E22B03045600BFA8DE /* YHTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6962A0E62B03045600BFA8DE /* YHTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITests.swift; sourceTree = "<group>"; };
-		6962A0E82B03045600BFA8DE /* YHTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		69D343992B03059E00A2EFC7 /* UnityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityManager.swift; sourceTree = "<group>"; };
-		69D3439C2B03062900A2EFC7 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69D343A02B03063900A2EFC7 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
-		69D343A42B03065300A2EFC7 /* Vuforia */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Vuforia; sourceTree = "<group>"; };
+		69B3629F2B07B37400714B3B /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B362A22B07B37400714B3B /* YHTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTApp.swift; sourceTree = "<group>"; };
+		69B362A42B07B37400714B3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		69B362A62B07B37500714B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69B362A92B07B37500714B3B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		69B362AF2B07B37500714B3B /* YHTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B362B32B07B37500714B3B /* YHTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTTests.swift; sourceTree = "<group>"; };
+		69B362B92B07B37500714B3B /* YHTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B362BD2B07B37500714B3B /* YHTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITests.swift; sourceTree = "<group>"; };
+		69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		69B362CC2B07B38C00714B3B /* UnityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityManager.swift; sourceTree = "<group>"; };
+		69EF496C2B07B486003DF6A9 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69EF49702B07B493003DF6A9 /* UnityDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityDriver.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/UnityDriver.framework; sourceTree = "<group>"; };
+		69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
+		69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		69EF49782B07B5D7003DF6A9 /* Vuforia */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Vuforia; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6962A0BF2B03045500BFA8DE /* Frameworks */ = {
+		69B3629C2B07B37400714B3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0D52B03045600BFA8DE /* Frameworks */ = {
+		69B362AC2B07B37500714B3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0DF2B03045600BFA8DE /* Frameworks */ = {
+		69B362B62B07B37500714B3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -101,106 +99,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		69280EE52B06743100B448F1 /* Resource */ = {
+		69B362962B07B37400714B3B = {
 			isa = PBXGroup;
 			children = (
-				6962A0CB2B03045500BFA8DE /* Main.storyboard */,
-				6962A0CE2B03045600BFA8DE /* Assets.xcassets */,
-				6962A0D02B03045600BFA8DE /* LaunchScreen.storyboard */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		69280EE62B06744500B448F1 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				69280EE52B06743100B448F1 /* Resource */,
-				6962A0D32B03045600BFA8DE /* Info.plist */,
-				6962A0C52B03045500BFA8DE /* AppDelegate.swift */,
-				6962A0C72B03045500BFA8DE /* SceneDelegate.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		69280EE72B0674DC00B448F1 /* UnityConfig */ = {
-			isa = PBXGroup;
-			children = (
-				69D343992B03059E00A2EFC7 /* UnityManager.swift */,
-			);
-			path = UnityConfig;
-			sourceTree = "<group>";
-		};
-		69280EE82B06755D00B448F1 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				69280EE92B06756400B448F1 /* Unity */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		69280EE92B06756400B448F1 /* Unity */ = {
-			isa = PBXGroup;
-			children = (
-				6962A0C92B03045500BFA8DE /* ViewController.swift */,
-				69280EE32B0673B000B448F1 /* ContentView.swift */,
-			);
-			path = Unity;
-			sourceTree = "<group>";
-		};
-		6962A0B92B03045500BFA8DE = {
-			isa = PBXGroup;
-			children = (
-				69D343A42B03065300A2EFC7 /* Vuforia */,
-				6962A0C42B03045500BFA8DE /* YHT */,
-				6962A0DB2B03045600BFA8DE /* YHTTests */,
-				6962A0E52B03045600BFA8DE /* YHTUITests */,
-				6962A0C32B03045500BFA8DE /* Products */,
-				69D3439B2B03062900A2EFC7 /* Frameworks */,
+				69EF49782B07B5D7003DF6A9 /* Vuforia */,
+				69B362A12B07B37400714B3B /* YHT */,
+				69B362B22B07B37500714B3B /* YHTTests */,
+				69B362BC2B07B37500714B3B /* YHTUITests */,
+				69B362A02B07B37400714B3B /* Products */,
+				69EF496B2B07B486003DF6A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		6962A0C32B03045500BFA8DE /* Products */ = {
+		69B362A02B07B37400714B3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6962A0C22B03045500BFA8DE /* YHT.app */,
-				6962A0D82B03045600BFA8DE /* YHTTests.xctest */,
-				6962A0E22B03045600BFA8DE /* YHTUITests.xctest */,
+				69B3629F2B07B37400714B3B /* YHT.app */,
+				69B362AF2B07B37500714B3B /* YHTTests.xctest */,
+				69B362B92B07B37500714B3B /* YHTUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6962A0C42B03045500BFA8DE /* YHT */ = {
+		69B362A12B07B37400714B3B /* YHT */ = {
 			isa = PBXGroup;
 			children = (
-				69280EE62B06744500B448F1 /* Application */,
-				69280EE72B0674DC00B448F1 /* UnityConfig */,
-				69280EE82B06755D00B448F1 /* Presentation */,
+				69B362A22B07B37400714B3B /* YHTApp.swift */,
+				69B362A42B07B37400714B3B /* ContentView.swift */,
+				69B362A62B07B37500714B3B /* Assets.xcassets */,
+				69B362A82B07B37500714B3B /* Preview Content */,
+				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
+				69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */,
 			);
 			path = YHT;
 			sourceTree = "<group>";
 		};
-		6962A0DB2B03045600BFA8DE /* YHTTests */ = {
+		69B362A82B07B37500714B3B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				6962A0DC2B03045600BFA8DE /* YHTTests.swift */,
+				69B362A92B07B37500714B3B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		69B362B22B07B37500714B3B /* YHTTests */ = {
+			isa = PBXGroup;
+			children = (
+				69B362B32B07B37500714B3B /* YHTTests.swift */,
 			);
 			path = YHTTests;
 			sourceTree = "<group>";
 		};
-		6962A0E52B03045600BFA8DE /* YHTUITests */ = {
+		69B362BC2B07B37500714B3B /* YHTUITests */ = {
 			isa = PBXGroup;
 			children = (
-				6962A0E62B03045600BFA8DE /* YHTUITests.swift */,
-				6962A0E82B03045600BFA8DE /* YHTUITestsLaunchTests.swift */,
+				69B362BD2B07B37500714B3B /* YHTUITests.swift */,
+				69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */,
 			);
 			path = YHTUITests;
 			sourceTree = "<group>";
 		};
-		69D3439B2B03062900A2EFC7 /* Frameworks */ = {
+		69EF496B2B07B486003DF6A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				69D343A02B03063900A2EFC7 /* VuforiaEngine.framework */,
-				69D3439C2B03062900A2EFC7 /* UnityFramework.framework */,
+				69EF49702B07B493003DF6A9 /* UnityDriver.framework */,
+				69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */,
+				69EF496C2B07B486003DF6A9 /* UnityFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,14 +172,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6962A0C12B03045500BFA8DE /* YHT */ = {
+		69B3629E2B07B37400714B3B /* YHT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6962A0EC2B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHT" */;
+			buildConfigurationList = 69B362C32B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHT" */;
 			buildPhases = (
-				6962A0BE2B03045500BFA8DE /* Sources */,
-				6962A0BF2B03045500BFA8DE /* Frameworks */,
-				6962A0C02B03045500BFA8DE /* Resources */,
-				69D3439F2B03062900A2EFC7 /* Embed Frameworks */,
+				69B3629B2B07B37400714B3B /* Sources */,
+				69B3629C2B07B37400714B3B /* Frameworks */,
+				69B3629D2B07B37400714B3B /* Resources */,
+				69EF496F2B07B486003DF6A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,69 +187,69 @@
 			);
 			name = YHT;
 			productName = YHT;
-			productReference = 6962A0C22B03045500BFA8DE /* YHT.app */;
+			productReference = 69B3629F2B07B37400714B3B /* YHT.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6962A0D72B03045600BFA8DE /* YHTTests */ = {
+		69B362AE2B07B37500714B3B /* YHTTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6962A0EF2B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHTTests" */;
+			buildConfigurationList = 69B362C62B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHTTests" */;
 			buildPhases = (
-				6962A0D42B03045600BFA8DE /* Sources */,
-				6962A0D52B03045600BFA8DE /* Frameworks */,
-				6962A0D62B03045600BFA8DE /* Resources */,
+				69B362AB2B07B37500714B3B /* Sources */,
+				69B362AC2B07B37500714B3B /* Frameworks */,
+				69B362AD2B07B37500714B3B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6962A0DA2B03045600BFA8DE /* PBXTargetDependency */,
+				69B362B12B07B37500714B3B /* PBXTargetDependency */,
 			);
 			name = YHTTests;
 			productName = YHTTests;
-			productReference = 6962A0D82B03045600BFA8DE /* YHTTests.xctest */;
+			productReference = 69B362AF2B07B37500714B3B /* YHTTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6962A0E12B03045600BFA8DE /* YHTUITests */ = {
+		69B362B82B07B37500714B3B /* YHTUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6962A0F22B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHTUITests" */;
+			buildConfigurationList = 69B362C92B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHTUITests" */;
 			buildPhases = (
-				6962A0DE2B03045600BFA8DE /* Sources */,
-				6962A0DF2B03045600BFA8DE /* Frameworks */,
-				6962A0E02B03045600BFA8DE /* Resources */,
+				69B362B52B07B37500714B3B /* Sources */,
+				69B362B62B07B37500714B3B /* Frameworks */,
+				69B362B72B07B37500714B3B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6962A0E42B03045600BFA8DE /* PBXTargetDependency */,
+				69B362BB2B07B37500714B3B /* PBXTargetDependency */,
 			);
 			name = YHTUITests;
 			productName = YHTUITests;
-			productReference = 6962A0E22B03045600BFA8DE /* YHTUITests.xctest */;
+			productReference = 69B362B92B07B37500714B3B /* YHTUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6962A0BA2B03045500BFA8DE /* Project object */ = {
+		69B362972B07B37400714B3B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					6962A0C12B03045500BFA8DE = {
+					69B3629E2B07B37400714B3B = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
-					6962A0D72B03045600BFA8DE = {
+					69B362AE2B07B37500714B3B = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 6962A0C12B03045500BFA8DE;
+						TestTargetID = 69B3629E2B07B37400714B3B;
 					};
-					6962A0E12B03045600BFA8DE = {
+					69B362B82B07B37500714B3B = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 6962A0C12B03045500BFA8DE;
+						TestTargetID = 69B3629E2B07B37400714B3B;
 					};
 				};
 			};
-			buildConfigurationList = 6962A0BD2B03045500BFA8DE /* Build configuration list for PBXProject "YHT" */;
+			buildConfigurationList = 69B3629A2B07B37400714B3B /* Build configuration list for PBXProject "YHT" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -293,38 +257,38 @@
 				en,
 				Base,
 			);
-			mainGroup = 6962A0B92B03045500BFA8DE;
-			productRefGroup = 6962A0C32B03045500BFA8DE /* Products */;
+			mainGroup = 69B362962B07B37400714B3B;
+			productRefGroup = 69B362A02B07B37400714B3B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6962A0C12B03045500BFA8DE /* YHT */,
-				6962A0D72B03045600BFA8DE /* YHTTests */,
-				6962A0E12B03045600BFA8DE /* YHTUITests */,
+				69B3629E2B07B37400714B3B /* YHT */,
+				69B362AE2B07B37500714B3B /* YHTTests */,
+				69B362B82B07B37500714B3B /* YHTUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6962A0C02B03045500BFA8DE /* Resources */ = {
+		69B3629D2B07B37400714B3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6962A0D22B03045600BFA8DE /* LaunchScreen.storyboard in Resources */,
-				6962A0CF2B03045600BFA8DE /* Assets.xcassets in Resources */,
-				6962A0CD2B03045500BFA8DE /* Main.storyboard in Resources */,
-				69D343A52B03065300A2EFC7 /* Vuforia in Resources */,
+				69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */,
+				69B362AA2B07B37500714B3B /* Preview Assets.xcassets in Resources */,
+				69B362A72B07B37500714B3B /* Assets.xcassets in Resources */,
+				69EF49792B07B5D7003DF6A9 /* Vuforia in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0D62B03045600BFA8DE /* Resources */ = {
+		69B362AD2B07B37500714B3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0E02B03045600BFA8DE /* Resources */ = {
+		69B362B72B07B37500714B3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,71 +298,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6962A0BE2B03045500BFA8DE /* Sources */ = {
+		69B3629B2B07B37400714B3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6962A0CA2B03045500BFA8DE /* ViewController.swift in Sources */,
-				69280EE42B0673B000B448F1 /* ContentView.swift in Sources */,
-				69D3439A2B03059E00A2EFC7 /* UnityManager.swift in Sources */,
-				6962A0C62B03045500BFA8DE /* AppDelegate.swift in Sources */,
-				6962A0C82B03045500BFA8DE /* SceneDelegate.swift in Sources */,
+				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
+				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
+				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0D42B03045600BFA8DE /* Sources */ = {
+		69B362AB2B07B37500714B3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6962A0DD2B03045600BFA8DE /* YHTTests.swift in Sources */,
+				69B362B42B07B37500714B3B /* YHTTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6962A0DE2B03045600BFA8DE /* Sources */ = {
+		69B362B52B07B37500714B3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6962A0E92B03045600BFA8DE /* YHTUITestsLaunchTests.swift in Sources */,
-				6962A0E72B03045600BFA8DE /* YHTUITests.swift in Sources */,
+				69B362C02B07B37500714B3B /* YHTUITestsLaunchTests.swift in Sources */,
+				69B362BE2B07B37500714B3B /* YHTUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6962A0DA2B03045600BFA8DE /* PBXTargetDependency */ = {
+		69B362B12B07B37500714B3B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6962A0C12B03045500BFA8DE /* YHT */;
-			targetProxy = 6962A0D92B03045600BFA8DE /* PBXContainerItemProxy */;
+			target = 69B3629E2B07B37400714B3B /* YHT */;
+			targetProxy = 69B362B02B07B37500714B3B /* PBXContainerItemProxy */;
 		};
-		6962A0E42B03045600BFA8DE /* PBXTargetDependency */ = {
+		69B362BB2B07B37500714B3B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6962A0C12B03045500BFA8DE /* YHT */;
-			targetProxy = 6962A0E32B03045600BFA8DE /* PBXContainerItemProxy */;
+			target = 69B3629E2B07B37400714B3B /* YHT */;
+			targetProxy = 69B362BA2B07B37500714B3B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		6962A0CB2B03045500BFA8DE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6962A0CC2B03045500BFA8DE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6962A0D02B03045600BFA8DE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6962A0D12B03045600BFA8DE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		6962A0EA2B03045600BFA8DE /* Debug */ = {
+		69B362C12B07B37500714B3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -461,7 +404,7 @@
 			};
 			name = Debug;
 		};
-		6962A0EB2B03045600BFA8DE /* Release */ = {
+		69B362C22B07B37500714B3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -517,19 +460,21 @@
 			};
 			name = Release;
 		};
-		6962A0ED2B03045600BFA8DE /* Debug */ = {
+		69B362C42B07B37500714B3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YHT/Preview Content\"";
 				DEVELOPMENT_TEAM = 26L95KN5AP;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YHT/Application/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -546,19 +491,21 @@
 			};
 			name = Debug;
 		};
-		6962A0EE2B03045600BFA8DE /* Release */ = {
+		69B362C52B07B37500714B3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YHT/Preview Content\"";
 				DEVELOPMENT_TEAM = 26L95KN5AP;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YHT/Application/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -575,7 +522,7 @@
 			};
 			name = Release;
 		};
-		6962A0F02B03045600BFA8DE /* Debug */ = {
+		69B362C72B07B37500714B3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -595,7 +542,7 @@
 			};
 			name = Debug;
 		};
-		6962A0F12B03045600BFA8DE /* Release */ = {
+		69B362C82B07B37500714B3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -615,7 +562,7 @@
 			};
 			name = Release;
 		};
-		6962A0F32B03045600BFA8DE /* Debug */ = {
+		69B362CA2B07B37500714B3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -633,7 +580,7 @@
 			};
 			name = Debug;
 		};
-		6962A0F42B03045600BFA8DE /* Release */ = {
+		69B362CB2B07B37500714B3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -654,43 +601,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6962A0BD2B03045500BFA8DE /* Build configuration list for PBXProject "YHT" */ = {
+		69B3629A2B07B37400714B3B /* Build configuration list for PBXProject "YHT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6962A0EA2B03045600BFA8DE /* Debug */,
-				6962A0EB2B03045600BFA8DE /* Release */,
+				69B362C12B07B37500714B3B /* Debug */,
+				69B362C22B07B37500714B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6962A0EC2B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHT" */ = {
+		69B362C32B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6962A0ED2B03045600BFA8DE /* Debug */,
-				6962A0EE2B03045600BFA8DE /* Release */,
+				69B362C42B07B37500714B3B /* Debug */,
+				69B362C52B07B37500714B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6962A0EF2B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHTTests" */ = {
+		69B362C62B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHTTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6962A0F02B03045600BFA8DE /* Debug */,
-				6962A0F12B03045600BFA8DE /* Release */,
+				69B362C72B07B37500714B3B /* Debug */,
+				69B362C82B07B37500714B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6962A0F22B03045600BFA8DE /* Build configuration list for PBXNativeTarget "YHTUITests" */ = {
+		69B362C92B07B37500714B3B /* Build configuration list for PBXNativeTarget "YHTUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6962A0F32B03045600BFA8DE /* Debug */,
-				6962A0F42B03045600BFA8DE /* Release */,
+				69B362CA2B07B37500714B3B /* Debug */,
+				69B362CB2B07B37500714B3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6962A0BA2B03045500BFA8DE /* Project object */;
+	rootObject = 69B362972B07B37400714B3B /* Project object */;
 }

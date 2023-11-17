@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        EmptyView()
-            .onAppear {
+        VStack {
+            Button {
                 UnityManager.shared.show()
+            } label: {
+                Text("Start Uinty")
             }
+
+        }
+        .padding()
     }
 }
+
 #Preview {
     ContentView()
 }
