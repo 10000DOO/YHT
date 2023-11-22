@@ -124,12 +124,12 @@
 		69B362A12B07B37400714B3B /* YHT */ = {
 			isa = PBXGroup;
 			children = (
+				69F5AFE42B0DB29700AB8145 /* Splash */,
 				69B362A22B07B37400714B3B /* YHTApp.swift */,
 				69B362A42B07B37400714B3B /* ContentView.swift */,
 				69B362A62B07B37500714B3B /* Assets.xcassets */,
 				69B362A82B07B37500714B3B /* Preview Content */,
 				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
-				69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */,
 			);
 			path = YHT;
 			sourceTree = "<group>";
@@ -167,6 +167,14 @@
 				69EF496C2B07B486003DF6A9 /* UnityFramework.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69F5AFE42B0DB29700AB8145 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
