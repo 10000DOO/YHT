@@ -15,7 +15,8 @@
 		69B362BE2B07B37500714B3B /* YHTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362BD2B07B37500714B3B /* YHTUITests.swift */; };
 		69B362C02B07B37500714B3B /* YHTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */; };
 		69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362CC2B07B38C00714B3B /* UnityManager.swift */; };
-		69EF496E2B07B486003DF6A9 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF496C2B07B486003DF6A9 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A1BD2B0F03040056C37A /* ServerInfo.swift */; };
+		69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A1C02B0F04840056C37A /* SignInView.swift */; };
 		69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49702B07B493003DF6A9 /* UnityDriver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */; };
@@ -48,7 +49,6 @@
 			files = (
 				69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */,
 				69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */,
-				69EF496E2B07B486003DF6A9 /* UnityFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +67,8 @@
 		69B362BD2B07B37500714B3B /* YHTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITests.swift; sourceTree = "<group>"; };
 		69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		69B362CC2B07B38C00714B3B /* UnityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityManager.swift; sourceTree = "<group>"; };
+		69C9A1BD2B0F03040056C37A /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
+		69C9A1C02B0F04840056C37A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		69EF496C2B07B486003DF6A9 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EF49702B07B493003DF6A9 /* UnityDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityDriver.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/UnityDriver.framework; sourceTree = "<group>"; };
 		69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				69EF49782B07B5D7003DF6A9 /* Vuforia */,
 				69B362A12B07B37400714B3B /* YHT */,
+				69C9A1BB2B0F02E20056C37A /* Infrastructure */,
 				69B362B22B07B37500714B3B /* YHTTests */,
 				69B362BC2B07B37500714B3B /* YHTUITests */,
 				69B362A02B07B37400714B3B /* Products */,
@@ -124,12 +127,11 @@
 		69B362A12B07B37400714B3B /* YHT */ = {
 			isa = PBXGroup;
 			children = (
-				69F5AFE42B0DB29700AB8145 /* Splash */,
-				69B362A22B07B37400714B3B /* YHTApp.swift */,
-				69B362A42B07B37400714B3B /* ContentView.swift */,
-				69B362A62B07B37500714B3B /* Assets.xcassets */,
-				69B362A82B07B37500714B3B /* Preview Content */,
-				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
+				69C9A1AE2B0F01C90056C37A /* Application */,
+				69C9A1AF2B0F01EF0056C37A /* Util */,
+				69C9A1B42B0F025F0056C37A /* Presentation */,
+				69C9A1B02B0F02060056C37A /* Domain */,
+				69C9A1B72B0F028C0056C37A /* Data */,
 			);
 			path = YHT;
 			sourceTree = "<group>";
@@ -157,6 +159,136 @@
 				69B362BF2B07B37500714B3B /* YHTUITestsLaunchTests.swift */,
 			);
 			path = YHTUITests;
+			sourceTree = "<group>";
+		};
+		69C9A1AE2B0F01C90056C37A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				69B362A22B07B37400714B3B /* YHTApp.swift */,
+				69B362A82B07B37500714B3B /* Preview Content */,
+				69B362A62B07B37500714B3B /* Assets.xcassets */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		69C9A1AF2B0F01EF0056C37A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		69C9A1B02B0F02060056C37A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1B32B0F02270056C37A /* Interface */,
+				69C9A1B22B0F021D0056C37A /* Entity */,
+				69C9A1B12B0F02110056C37A /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		69C9A1B12B0F02110056C37A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		69C9A1B22B0F021D0056C37A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		69C9A1B32B0F02270056C37A /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		69C9A1B42B0F025F0056C37A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1BA2B0F02D10056C37A /* View */,
+				69F5AFE42B0DB29700AB8145 /* Splash */,
+				69C9A1B62B0F02780056C37A /* Model */,
+				69C9A1B52B0F026D0056C37A /* Interface */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		69C9A1B52B0F026D0056C37A /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		69C9A1B62B0F02780056C37A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69C9A1B72B0F028C0056C37A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1B82B0F02920056C37A /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		69C9A1B82B0F02920056C37A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1B92B0F029B0056C37A /* Config */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		69C9A1B92B0F029B0056C37A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		69C9A1BA2B0F02D10056C37A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1BF2B0F046E0056C37A /* SignIn */,
+				69B362A42B07B37400714B3B /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69C9A1BB2B0F02E20056C37A /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1BC2B0F02ED0056C37A /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		69C9A1BC2B0F02ED0056C37A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1BD2B0F03040056C37A /* ServerInfo.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		69C9A1BF2B0F046E0056C37A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1C02B0F04840056C37A /* SignInView.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		69EF496B2B07B486003DF6A9 /* Frameworks */ = {
@@ -312,7 +444,9 @@
 			files = (
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
+				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
+				69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +609,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"YHT/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"YHT/Application/Preview Content\"";
 				DEVELOPMENT_TEAM = 26L95KN5AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -506,7 +640,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"YHT/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"YHT/Application/Preview Content\"";
 				DEVELOPMENT_TEAM = 26L95KN5AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
