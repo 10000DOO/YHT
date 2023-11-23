@@ -17,6 +17,7 @@
 		69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362CC2B07B38C00714B3B /* UnityManager.swift */; };
 		69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A1BD2B0F03040056C37A /* ServerInfo.swift */; };
 		69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A1C02B0F04840056C37A /* SignInView.swift */; };
+		69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A1C32B0F29CA0056C37A /* SignUpView.swift */; };
 		69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49702B07B493003DF6A9 /* UnityDriver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */; };
@@ -69,6 +70,7 @@
 		69B362CC2B07B38C00714B3B /* UnityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnityManager.swift; sourceTree = "<group>"; };
 		69C9A1BD2B0F03040056C37A /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
 		69C9A1C02B0F04840056C37A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		69C9A1C32B0F29CA0056C37A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		69EF496C2B07B486003DF6A9 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EF49702B07B493003DF6A9 /* UnityDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityDriver.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/UnityDriver.framework; sourceTree = "<group>"; };
 		69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		69C9A1BA2B0F02D10056C37A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				69C9A1C22B0F29BC0056C37A /* SignUp */,
 				69C9A1BF2B0F046E0056C37A /* SignIn */,
 				69B362A42B07B37400714B3B /* ContentView.swift */,
 			);
@@ -289,6 +292,14 @@
 				69C9A1C02B0F04840056C37A /* SignInView.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		69C9A1C22B0F29BC0056C37A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				69C9A1C32B0F29CA0056C37A /* SignUpView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		69EF496B2B07B486003DF6A9 /* Frameworks */ = {
@@ -446,6 +457,7 @@
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
+				69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */,
 				69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
