@@ -19,61 +19,86 @@ struct SignInView: View {
                 Image("Logo")
                     .resizable()
                     .frame(width: 180, height: 90)
-                VStack {
-                    TextField("아이디 입력", text: $id)
+                    .padding(.bottom, 80)
+                    .padding(.top, 80)
+                VStack(alignment: .center, spacing: 20) {
+                    TextField("아이디", text: $id)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
-                        .padding(.leading, 20)
+                        .padding(.leading, 30)
                         .background(Color(uiColor: .clear))
+                        .overlay(
+                            HStack {
+                                Image(systemName: "person.fill.viewfinder")
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                                .frame(maxWidth: .infinity, alignment: .leading),
+                            alignment: .leading
+                        )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                     
-                    SecureField("비밀번호 입력", text: $password)
+                    SecureField("비밀번호", text: $password)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
-                        .padding(.leading, 20)
+                        .padding(.leading, 30)
                         .background(Color(uiColor: .clear))
+                        .overlay(
+                            HStack {
+                                Image(systemName: "lock")
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                                .frame(maxWidth: .infinity, alignment: .leading),
+                            alignment: .leading
+                        )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                 }
-                .padding(.top, 80)
                 
-                VStack {
-                    Button(action: {
-                        print("로그인")
-                    }) {
-                        HStack {
-                            Text("로그인")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                        .foregroundColor(textColorForCurrentColorScheme())
-                        .cornerRadius(8)
+                Button(action: {
+                    print("로그인")
+                }) {
+                    HStack {
+                        Text("로그인")
+                            .fontWeight(.bold)
                     }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                    .foregroundColor(textColorForCurrentColorScheme())
+                    .cornerRadius(8)
+                }.padding(.top, 70)
+                
+                HStack(alignment: .center, spacing: 30) {
+                    Button("아이디 찾기") {
+                        print("아이디 찾기")
+                    }
+                    .fontWeight(.bold)
                     
-                    HStack(alignment: .center, spacing: 30) {
-                        Button("아이디 찾기") {
-                            print("아이디 찾기")
-                        }
-                        .foregroundColor(Color(.label))
-                        Button("비밀번호 찾기") {
-                            print("비밀번호 찾기")
-                        }
-                        .foregroundColor(Color(.label))
-                        NavigationLink(destination: SignUpView()) {
-                            Text("회원가입")
+                    .foregroundColor(Color(.label))
+                    Button("비밀번호 찾기") {
+                        print("비밀번호 찾기")
+                    }
+                    .fontWeight(.bold)
+                    
+                    .foregroundColor(Color(.label))
+                    NavigationLink(destination: SignUpView()) {
+                        Text("회원가입")
                             .foregroundColor(Color(.label))
-                        }.foregroundColor(.white)
-                    }.padding(.top, 10)
-                }
-                .padding(.top, 50)
-            }.padding(.horizontal, 20)
-        }
-        Spacer()
-        
-            .onAppear {
-                setColorScheme()
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
+                }.padding(.top, 15)
+                Spacer()
             }
+            .padding(.horizontal, 20)
+        }
+        
+        .onAppear {
+            setColorScheme()
+        }
     }
     
     private func setColorScheme() {
