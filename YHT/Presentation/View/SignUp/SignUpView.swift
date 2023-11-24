@@ -14,11 +14,15 @@ struct SignUpView: View {
     @State var passwordText: String = ""
     @State var confirmPasswordText: String = ""
     @State var idText: String = ""
+    @State var emailError: String = ""
+    @State var idError: String = ""
+    @State var passwordError: String = ""
+    @State var passwordCheckError: String = ""
     @State var isCodeTextFieldVisible: Bool = false
     @State private var colorScheme: ColorScheme = .light
     
     var body: some View {
-        VStack (alignment: .center, spacing: 30){
+        VStack (alignment: .center, spacing: 20){
             Image("Logo")
                 .resizable()
                 .frame(width: 180, height: 90)
@@ -57,6 +61,14 @@ struct SignUpView: View {
                 }
             }
             
+            HStack {
+                Text($emailError.wrappedValue)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(.red))
+                Spacer()
+            }.padding(.top, -20)
+                .frame(height: 10)
+            
             if isCodeTextFieldVisible {
                 TextField("인증 코드", text: $codeText)
                     .frame(height: 50)
@@ -74,6 +86,10 @@ struct SignUpView: View {
                         alignment: .leading
                     )
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                
+                Text("")
+                    .padding(.top, -20)
+                        .frame(height: 10)
             }
             
             TextField("아이디", text: $idText)
@@ -93,6 +109,14 @@ struct SignUpView: View {
                 )
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
             
+            HStack {
+                Text($idError.wrappedValue)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(.red))
+                Spacer()
+            }.padding(.top, -20)
+                .frame(height: 10)
+            
             TextField("비밀번호", text: $passwordText)
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
@@ -110,6 +134,14 @@ struct SignUpView: View {
                 )
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
             
+            HStack {
+                Text($passwordError.wrappedValue)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(.red))
+                Spacer()
+            }.padding(.top, -20)
+                .frame(height: 10)
+            
             TextField("비밀번호 확인", text: $confirmPasswordText)
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
@@ -126,6 +158,15 @@ struct SignUpView: View {
                     alignment: .leading
                 )
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+            
+            HStack {
+                Text($passwordCheckError.wrappedValue)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(.red))
+                Spacer()
+            }.padding(.top, -20)
+                .frame(height: 10)
+            
             Spacer()
         }
         .navigationBarHidden(true)
