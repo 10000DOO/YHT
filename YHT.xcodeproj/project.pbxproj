@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69046E0E2B219D9700764D1A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E0D2B219D9700764D1A /* SignUpViewModel.swift */; };
+		69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E112B21BDA200764D1A /* ErrorMessage.swift */; };
 		69AD83A02B10942300448107 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD839F2B10942300448107 /* ViewExtension.swift */; };
 		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
 		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		69046E0D2B219D9700764D1A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		69046E112B21BDA200764D1A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		69AD839F2B10942300448107 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		69B3629F2B07B37400714B3B /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B362A22B07B37400714B3B /* YHTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTApp.swift; sourceTree = "<group>"; };
@@ -105,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69046E0C2B219D8200764D1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69046E0D2B219D9700764D1A /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		69B362962B07B37400714B3B = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +192,7 @@
 			children = (
 				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
 				69AD839F2B10942300448107 /* ViewExtension.swift */,
+				69046E112B21BDA200764D1A /* ErrorMessage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -300,6 +313,7 @@
 		69C9A1C22B0F29BC0056C37A /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				69046E0C2B219D8200764D1A /* ViewModel */,
 				69C9A1C32B0F29CA0056C37A /* SignUpView.swift */,
 			);
 			path = SignUp;
@@ -458,10 +472,12 @@
 			files = (
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
+				69046E0E2B219D9700764D1A /* SignUpViewModel.swift in Sources */,
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69AD83A02B10942300448107 /* ViewExtension.swift in Sources */,
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
 				69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */,
+				69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */,
 				69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
