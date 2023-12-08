@@ -34,5 +34,14 @@ class SignUpViewModel: ObservableObject {
     
     func emailButtonClick() {
         emailService.sendEmail(email: emailText)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self.emailError = error.error.first!.error
+                }
+            } receiveValue: { response in
+            }.store(in: &cancellables)
     }
 }

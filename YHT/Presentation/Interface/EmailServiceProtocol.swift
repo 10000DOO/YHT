@@ -10,7 +10,7 @@ import Combine
 
 protocol EmailServiceProtocol {
     
-    func sendEmail(email: String)
+    func sendEmail(email: String) -> AnyPublisher<Never, ErrorResponse>
     
     func checkEmailValidation(email: String) -> Bool
     
