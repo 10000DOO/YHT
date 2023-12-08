@@ -85,7 +85,7 @@ struct SignInView: View {
                     .fontWeight(.bold)
                     
                     .foregroundColor(Color(.label))
-                    NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel())) {
+                    NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository())))) {
                         Text("회원가입")
                             .foregroundColor(Color(.label))
                             .fontWeight(.bold)

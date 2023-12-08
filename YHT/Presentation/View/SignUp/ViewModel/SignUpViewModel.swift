@@ -21,10 +21,18 @@ class SignUpViewModel: ObservableObject {
     @Published var passwordError: String = ""
     @Published var passwordCheckError: String = ""
     @Published var isCodeTextFieldVisible: Bool = false
+    private let emailService: EmailServiceProtocol
+    var cancellables = Set<AnyCancellable>()
+    
+    init(emailService: EmailServiceProtocol) {
+        self.emailService = emailService
+    }
     
     func isValidEmail() -> Bool {
-        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\\.[A-Za-z]{2,64}"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        return emailPredicate.evaluate(with: emailText)
+        return emailService.checkEmailValidation(email: emailText)
+    }
+    
+    func emailButtonClick() {
+        emailService.sendEmail(email: emailText)
     }
 }

@@ -52,6 +52,7 @@ struct SignUpView: View {
                     
                     Button(action: {
                         signUpViewModel.isCodeTextFieldVisible = true
+                        signUpViewModel.emailButtonClick()
                     }) {
                         HStack {
                             Text("코드 발송")
@@ -214,5 +215,5 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
 }
 
 #Preview {
-    SignUpView(signUpViewModel: SignUpViewModel())
+    SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository())))
 }
