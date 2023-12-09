@@ -11,11 +11,11 @@ import Combine
 
 class EmailRepository: EmailRepositoryProtocol {
     
-    func sendEmail(email: String) -> AnyPublisher<EmailSendResponse, ErrorResponse> {
+    func sendEmail(sendEmailRequest: SendEmailRequest) -> AnyPublisher<EmailSendResponse, ErrorResponse> {
         return Future<EmailSendResponse, ErrorResponse> { promise in
             AF.request(ServerInfo.serverURL + "/email",
                        method: .post,
-                       parameters: SendEmailRequest(email: email),
+                       parameters: sendEmailRequest,
                        encoder: JSONParameterEncoder.default,
                        headers: ["Content-Type": "application/json"])
             .responseData { response in

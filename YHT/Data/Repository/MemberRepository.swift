@@ -11,37 +11,6 @@ import Combine
 
 class MemberRepository: MemberRepositoryProtocol {
     
-    func sendEmail(email: String) -> AnyPublisher<EmailSendResponse, ErrorResponse> {
-        return Future<EmailSendResponse, ErrorResponse> { promise in
-            AF.request(ServerInfo.serverURL + "/email",
-                       method: .post,
-                       parameters: SendEmailRequest(email: email),
-                       encoder: JSONParameterEncoder.default,
-                       headers: ["Content-Type": "application/json"])
-            .responseData { response in
-                switch response.result {
-                case .success(let data):
-                    do {
-                        let emailSendResponse = try JSONDecoder().decode(EmailSendResponse.self, from: data)
-                        promise(.success(emailSendResponse))
-                    } catch {
-                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                            promise(.failure(errorResponse))
-                        } else {
-                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
-                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
-                            promise(.failure(defaultError))
-                        }
-                    }
-                case .failure(let error):
-                    let customError = ErrorResponse(status: error.responseCode ?? 500,
-                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
-                    promise(.failure(customError))
-                }
-            }
-        }.eraseToAnyPublisher()
-    }
-    
     func join(code: String, signUpRequest: SignUpRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
         return Future<CommonSuccessRes, ErrorResponse> { promise in
             var urlComponents = URLComponents(string: ServerInfo.serverURL + "/signup")!
@@ -62,8 +31,8 @@ class MemberRepository: MemberRepositoryProtocol {
                     switch response.result {
                     case .success(let data):
                         do {
-                            let emailSendResponse = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
-                            promise(.success(emailSendResponse))
+                            let signUpResponse = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                            promise(.success(signUpResponse))
                         } catch {
                             if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                                 promise(.failure(errorResponse))
@@ -82,4 +51,34 @@ class MemberRepository: MemberRepositoryProtocol {
         }.eraseToAnyPublisher()
     }
     
+    func signIn(signInRequest: SignInRequest) -> AnyPublisher<SignInResponse, ErrorResponse> {
+        return Future<SignInResponse, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/signin",
+                       method: .post,
+                       parameters: signInRequest,
+                       encoder: JSONParameterEncoder.default,
+                       headers: ["Content-Type": "application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let signInResponse = try JSONDecoder().decode(SignInResponse.self, from: data)
+                        promise(.success(signInResponse))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

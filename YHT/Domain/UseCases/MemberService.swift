@@ -7,11 +7,13 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 class MemberService: MemberServiceProtocol {
     
     private let memberRepository: MemberRepositoryProtocol
     var cancellables = Set<AnyCancellable>()
+    let realm = try! Realm()
     
     init(memberRepository: MemberRepositoryProtocol) {
         self.memberRepository = memberRepository
@@ -41,6 +43,35 @@ class MemberService: MemberServiceProtocol {
                     }
                 } receiveValue: { response in
                     promise(.success(response.data))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
+    
+    func signIn(id: String, password: String) -> AnyPublisher<String, ErrorResponse> {
+        return Future<String, ErrorResponse> { [weak self] promise in
+            self?.memberRepository.signIn(signInRequest: SignInRequest(loginId: id, password: password))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    UserDefaults.standard.set(response.data.username, forKey: "username")
+                    
+                    let accessToken = TokenData()
+                    let refreshToken = TokenData()
+                    accessToken.tokenName = "accessToken"
+                    accessToken.tokenContent = response.data.accessToken
+                    refreshToken.tokenName = "refreshToken"
+                    refreshToken.tokenContent = response.data.refreshToken
+                    
+                    let result = Query.insertToken(realm: self!.realm, accessToken: accessToken, refreshToken: refreshToken)
+                    if result != nil {
+                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
+                    }
+                    promise(.success(response.data.username))
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }

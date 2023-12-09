@@ -18,6 +18,13 @@
 		69046E212B220CB100764D1A /* EmailSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E202B220CB100764D1A /* EmailSendResponse.swift */; };
 		69046E242B220FE900764D1A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 69046E232B220FE900764D1A /* Alamofire */; };
 		69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E252B22117300764D1A /* SendEmailRequest.swift */; };
+		6915E8312B24AE2F0031EBEC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */; };
+		6915E8342B24B7B00031EBEC /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8332B24B7B00031EBEC /* SignInRequest.swift */; };
+		6915E8362B24B9670031EBEC /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8352B24B9670031EBEC /* SignInResponse.swift */; };
+		6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E83B2B24C4950031EBEC /* TokenData.swift */; };
+		6915E83E2B24C5060031EBEC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83D2B24C5060031EBEC /* Realm */; };
+		6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83F2B24C5060031EBEC /* RealmSwift */; };
+		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
 		69AD83A02B10942300448107 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD839F2B10942300448107 /* ViewExtension.swift */; };
 		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
 		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
@@ -84,6 +91,11 @@
 		69046E1D2B220C9200764D1A /* CommonSuccessRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSuccessRes.swift; sourceTree = "<group>"; };
 		69046E202B220CB100764D1A /* EmailSendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSendResponse.swift; sourceTree = "<group>"; };
 		69046E252B22117300764D1A /* SendEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailRequest.swift; sourceTree = "<group>"; };
+		6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		6915E8332B24B7B00031EBEC /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		6915E8352B24B9670031EBEC /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		6915E83B2B24C4950031EBEC /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		69AD839F2B10942300448107 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		69B3629F2B07B37400714B3B /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B362A22B07B37400714B3B /* YHTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTApp.swift; sourceTree = "<group>"; };
@@ -117,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */,
+				6915E83E2B24C5060031EBEC /* Realm in Frameworks */,
 				69046E242B220FE900764D1A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +166,48 @@
 				69046E202B220CB100764D1A /* EmailSendResponse.swift */,
 			);
 			path = Email;
+			sourceTree = "<group>";
+		};
+		6915E82F2B24AE210031EBEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6915E8322B24B7950031EBEC /* MemberDTO */ = {
+			isa = PBXGroup;
+			children = (
+				69E232502B247F39004C4D0D /* SignUpRequest.swift */,
+				6915E8332B24B7B00031EBEC /* SignInRequest.swift */,
+			);
+			path = MemberDTO;
+			sourceTree = "<group>";
+		};
+		6915E8372B24B9700031EBEC /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				6915E8352B24B9670031EBEC /* SignInResponse.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6915E8382B24B9830031EBEC /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				69046E252B22117300764D1A /* SendEmailRequest.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		6915E83A2B24C4820031EBEC /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				6915E83B2B24C4950031EBEC /* TokenData.swift */,
+				6915E8432B24D3330031EBEC /* Query.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		69B362962B07B37400714B3B = {
@@ -257,6 +313,7 @@
 		69C9A1B22B0F021D0056C37A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6915E8372B24B9700031EBEC /* SignIn */,
 				69046E1F2B220C9F00764D1A /* Email */,
 				69046E172B22099F00764D1A /* ErrorResponse.swift */,
 				69046E1D2B220C9200764D1A /* CommonSuccessRes.swift */,
@@ -296,8 +353,8 @@
 		69C9A1B62B0F02780056C37A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				69046E252B22117300764D1A /* SendEmailRequest.swift */,
-				69E232502B247F39004C4D0D /* SignUpRequest.swift */,
+				6915E8382B24B9830031EBEC /* Email */,
+				6915E8322B24B7950031EBEC /* MemberDTO */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +362,7 @@
 		69C9A1B72B0F028C0056C37A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6915E83A2B24C4820031EBEC /* DataBase */,
 				69C9A1B82B0F02920056C37A /* Repository */,
 			);
 			path = Data;
@@ -348,6 +406,7 @@
 		69C9A1BF2B0F046E0056C37A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				6915E82F2B24AE210031EBEC /* ViewModel */,
 				69C9A1C02B0F04840056C37A /* SignInView.swift */,
 			);
 			path = SignIn;
@@ -399,6 +458,8 @@
 			name = YHT;
 			packageProductDependencies = (
 				69046E232B220FE900764D1A /* Alamofire */,
+				6915E83D2B24C5060031EBEC /* Realm */,
+				6915E83F2B24C5060031EBEC /* RealmSwift */,
 			);
 			productName = YHT;
 			productReference = 69B3629F2B07B37400714B3B /* YHT.app */;
@@ -474,6 +535,7 @@
 			mainGroup = 69B362962B07B37400714B3B;
 			packageReferences = (
 				69046E222B220FE900764D1A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 69B362A02B07B37400714B3B /* Products */;
 			projectDirPath = "";
@@ -522,11 +584,16 @@
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
 				69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */,
+				6915E8362B24B9670031EBEC /* SignInResponse.swift in Sources */,
 				69046E1A2B220C2B00764D1A /* EmailRepository.swift in Sources */,
+				6915E8312B24AE2F0031EBEC /* SignInViewModel.swift in Sources */,
 				69046E212B220CB100764D1A /* EmailSendResponse.swift in Sources */,
 				69046E0E2B219D9700764D1A /* SignUpViewModel.swift in Sources */,
+				6915E8342B24B7B00031EBEC /* SignInRequest.swift in Sources */,
 				69046E1C2B220C3900764D1A /* EmailRepositoryProtocol.swift in Sources */,
+				6915E8442B24D3330031EBEC /* Query.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
+				6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */,
 				69046E1E2B220C9200764D1A /* CommonSuccessRes.swift in Sources */,
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69AD83A02B10942300448107 /* ViewExtension.swift in Sources */,
@@ -886,6 +953,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -893,6 +968,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69046E222B220FE900764D1A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		6915E83D2B24C5060031EBEC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		6915E83F2B24C5060031EBEC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

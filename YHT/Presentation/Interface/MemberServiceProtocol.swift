@@ -15,4 +15,6 @@ protocol MemberServiceProtocol {
     func checkPasswordValidation(password: String) -> Bool
     
     func signUp(email: String, emailCode: String, id: String, password: String, username: String) -> AnyPublisher<String, ErrorResponse>
+    
+    func signIn(id: String, password: String) -> AnyPublisher<String, ErrorResponse>
 }

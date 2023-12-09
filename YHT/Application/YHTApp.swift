@@ -11,7 +11,11 @@ import SwiftUI
 struct YHTApp: App {
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            if UserDefaults.standard.bool(forKey: "isAlreadySignIn") {
+                
+            } else {
+                SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
+            }
         }
     }
 }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State var id: String = ""
-    @State var password: String = ""
     @State private var colorScheme: ColorScheme = .light
-    @State private var isActive: Bool = false
+    @ObservedObject private var signInViewModel: SignInViewModel
+    
+    init(signInViewModel: SignInViewModel) {
+        self.signInViewModel = signInViewModel
+    }
     
     var body: some View {
         NavigationView {
@@ -21,8 +23,8 @@ struct SignInView: View {
                     .frame(width: 180, height: 90)
                     .padding(.bottom, 80)
                     .padding(.top, 80)
-                VStack(alignment: .center, spacing: 20) {
-                    TextField("아이디", text: $id)
+                VStack(alignment: .center, spacing: 30) {
+                    TextField("아이디", text: $signInViewModel.id)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -39,7 +41,7 @@ struct SignInView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                     
-                    SecureField("비밀번호", text: $password)
+                    SecureField("비밀번호", text: $signInViewModel.password)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -55,10 +57,19 @@ struct SignInView: View {
                             alignment: .leading
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    
+                    HStack {
+                        Text(signInViewModel.signInError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                        Spacer()
+                    }
+                    .padding(.top, -20)
+                    .frame(height: 10)
                 }
                 
                 Button(action: {
-                    print("로그인")
+                    signInViewModel.signInButtonClicked()
                 }) {
                     Text("로그인")
                     .fontWeight(.bold)
@@ -67,7 +78,7 @@ struct SignInView: View {
                     .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                     .foregroundColor(textColorForCurrentColorScheme())
                     .cornerRadius(8)
-                }.padding(.top, 70)
+                }.padding(.top, 60)
                 
                 HStack(alignment: .center, spacing: 30) {
                     Button("아이디 찾기") {
@@ -93,6 +104,7 @@ struct SignInView: View {
             }
             .padding(.horizontal, 20)
         }
+        .onTapGesture {hideKeyboard()}
         .onAppear {
             setColorScheme()
         }
@@ -108,5 +120,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
 }

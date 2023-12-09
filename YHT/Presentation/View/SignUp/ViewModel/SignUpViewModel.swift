@@ -109,7 +109,6 @@ class SignUpViewModel: ObservableObject {
                         }
                     }
                 } receiveValue: { [weak self] response in
-                    UserDefaults.standard.set(response, forKey: "username")
                     self?.signUpSuccess = true
                 }.store(in: &cancellables)
         }

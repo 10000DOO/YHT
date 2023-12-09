@@ -19,7 +19,7 @@ class EmailService: EmailServiceProtocol {
     
     func sendEmail(email: String) -> AnyPublisher<Never, ErrorResponse> {
         return Future<Never, ErrorResponse> { [weak self] promise in
-            self?.emailRepository.sendEmail(email: email)
+            self?.emailRepository.sendEmail(sendEmailRequest: SendEmailRequest(email: email))
                 .sink { completion in
                     switch completion {
                     case .finished:

@@ -11,4 +11,6 @@ import Combine
 protocol MemberRepositoryProtocol {
     
     func join(code: String, signUpRequest: SignUpRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func signIn(signInRequest: SignInRequest) -> AnyPublisher<SignInResponse, ErrorResponse>
 }
