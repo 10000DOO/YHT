@@ -1,0 +1,85 @@
+//
+//  MemberRepository.swift
+//  YHT
+//
+//  Created by 이건준 on 12/9/23.
+//
+
+import Foundation
+import Alamofire
+import Combine
+
+class MemberRepository: MemberRepositoryProtocol {
+    
+    func sendEmail(email: String) -> AnyPublisher<EmailSendResponse, ErrorResponse> {
+        return Future<EmailSendResponse, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/email",
+                       method: .post,
+                       parameters: SendEmailRequest(email: email),
+                       encoder: JSONParameterEncoder.default,
+                       headers: ["Content-Type": "application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let emailSendResponse = try JSONDecoder().decode(EmailSendResponse.self, from: data)
+                        promise(.success(emailSendResponse))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func join(code: String, signUpRequest: SignUpRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            var urlComponents = URLComponents(string: ServerInfo.serverURL + "/signup")!
+            urlComponents.queryItems = [URLQueryItem(name: "code", value: code)]
+            
+            var urlRequest = URLRequest(url: urlComponents.url!)
+            urlRequest.httpMethod = HTTPMethod.post.rawValue
+            urlRequest.headers = HTTPHeaders(["Content-Type": "application/json"])
+            
+            do {
+                let encoder = JSONParameterEncoder.default
+                urlRequest = try encoder.encode(signUpRequest, into: urlRequest)
+            } catch {
+            }
+            
+            AF.request(urlRequest)
+                .responseData { response in
+                    switch response.result {
+                    case .success(let data):
+                        do {
+                            let emailSendResponse = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                            promise(.success(emailSendResponse))
+                        } catch {
+                            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                                promise(.failure(errorResponse))
+                            } else {
+                                let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                                 error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                                promise(.failure(defaultError))
+                            }
+                        }
+                    case .failure(let error):
+                        let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                        error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                        promise(.failure(customError))
+                    }
+                }
+        }.eraseToAnyPublisher()
+    }
+    
+}

@@ -60,13 +60,10 @@ struct SignInView: View {
                 Button(action: {
                     print("로그인")
                 }) {
-                    HStack {
-                        Text("로그인")
-                            .fontWeight(.bold)
-                    }
+                    Text("로그인")
+                    .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                     .foregroundColor(textColorForCurrentColorScheme())
                     .cornerRadius(8)
@@ -85,17 +82,17 @@ struct SignInView: View {
                     .fontWeight(.bold)
                     
                     .foregroundColor(Color(.label))
-                    NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository())))) {
+                    NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
                         Text("회원가입")
                             .foregroundColor(Color(.label))
                             .fontWeight(.bold)
                     }.foregroundColor(.white)
                 }.padding(.top, 15)
                 Spacer()
+                
             }
             .padding(.horizontal, 20)
         }
-        
         .onAppear {
             setColorScheme()
         }

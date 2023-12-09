@@ -25,14 +25,12 @@ class EmailService: EmailServiceProtocol {
                     case .finished:
                         break
                     case .failure(let error):
-                        promise(.failure(ErrorResponse(status: error.status, error: error.error)))
+                        promise(.failure(error))
                     }
                 } receiveValue: { response in
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }
-
-
     
     func checkEmailValidation(email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -40,4 +38,3 @@ class EmailService: EmailServiceProtocol {
         return emailPredicate.evaluate(with: email)
     }
 }
-

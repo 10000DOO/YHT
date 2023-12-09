@@ -11,6 +11,7 @@ import Combine
 struct SignUpView: View {
     @State private var colorScheme: ColorScheme = .light
     @ObservedObject private var signUpViewModel: SignUpViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(signUpViewModel: SignUpViewModel) {
         self.signUpViewModel = signUpViewModel
@@ -42,22 +43,15 @@ struct SignUpView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
-                            if !signUpViewModel.isValidEmail() {
-                                $signUpViewModel.emailError.wrappedValue = ErrorMessage.wrongEmailPattern.rawValue
-                            }
-                            if signUpViewModel.isValidEmail() {
-                                $signUpViewModel.emailError.wrappedValue = ErrorMessage.availableEmail.rawValue
-                            }
+                            signUpViewModel.isValidEmail()
                         }
                     
                     Button(action: {
                         signUpViewModel.isCodeTextFieldVisible = true
                         signUpViewModel.emailButtonClick()
                     }) {
-                        HStack {
-                            Text("코드 발송")
-                                .fontWeight(.bold)
-                        }
+                        Text("코드 발송")
+                        .fontWeight(.bold)
                         .frame(height: 50)
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
@@ -76,7 +70,6 @@ struct SignUpView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                     }
-
                     Spacer()
                 }
                 .padding(.top, -20)
@@ -100,9 +93,14 @@ struct SignUpView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                     
-                    Text("")
-                        .padding(.top, -20)
-                        .frame(height: 10)
+                    HStack {
+                        Text(signUpViewModel.codeError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                        Spacer()
+                    }
+                    .padding(.top, -20)
+                    .frame(height: 10)
                 }
                 
                 TextField("아이디", text: $signUpViewModel.idText)
@@ -121,11 +119,20 @@ struct SignUpView: View {
                         alignment: .leading
                     )
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                        signUpViewModel.isValidId()
+                    }
                 
                 HStack {
-                    Text($signUpViewModel.idError.wrappedValue)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(.red))
+                    if signUpViewModel.idError == ErrorMessage.availableLoginId.rawValue {
+                        Text(signUpViewModel.idError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.blue)
+                    } else {
+                        Text(signUpViewModel.idError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                    }
                     Spacer()
                 }.padding(.top, -20)
                     .frame(height: 10)
@@ -146,11 +153,20 @@ struct SignUpView: View {
                         alignment: .leading
                     )
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                        signUpViewModel.isValidPassword()
+                    }
                 
                 HStack {
-                    Text($signUpViewModel.passwordError.wrappedValue)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(.red))
+                    if signUpViewModel.passwordError == ErrorMessage.availablePassword.rawValue {
+                        Text(signUpViewModel.passwordError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.blue)
+                    } else {
+                        Text(signUpViewModel.passwordError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                    }
                     Spacer()
                 }.padding(.top, -20)
                     .frame(height: 10)
@@ -171,16 +187,76 @@ struct SignUpView: View {
                         alignment: .leading
                     )
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                        signUpViewModel.isValidPasswordCheck()
+                    }
                 
                 HStack {
-                    Text($signUpViewModel.passwordCheckError.wrappedValue)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(.red))
+                    if signUpViewModel.passwordCheckError == ErrorMessage.passwordMatching.rawValue {
+                        Text(signUpViewModel.passwordCheckError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.blue)
+                    } else {
+                        Text(signUpViewModel.passwordCheckError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                    }
                     Spacer()
                 }.padding(.top, -20)
                     .frame(height: 10)
                 
-                Spacer()
+                TextField("닉네임", text: $signUpViewModel.usernameText)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .padding(.leading, 30)
+                    .background(Color(uiColor: .clear))
+                    .overlay(
+                        HStack {
+                            Image(systemName: "textformat.size")
+                                .foregroundColor(.gray)
+                                .padding(.leading, 5)
+                            Spacer()
+                        }
+                            .frame(maxWidth: .infinity, alignment: .leading),
+                        alignment: .leading
+                    )
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                        signUpViewModel.isValidNickname()
+                    }
+                
+                HStack {
+                    if signUpViewModel.usernameError == ErrorMessage.availableNickName.rawValue {
+                        Text(signUpViewModel.usernameError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.blue)
+                    } else {
+                        Text(signUpViewModel.usernameError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                    }
+                    Spacer()
+                }.padding(.top, -20)
+                    .frame(height: 10)
+                
+                VStack {
+                    Button(action: {
+                        signUpViewModel.signUpButtonClicked()
+                    }) {
+                        Text("회원가입")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .foregroundColor(textColorForCurrentColorScheme())
+                        .cornerRadius(8)
+                    }
+                }
+                .onReceive(signUpViewModel.$signUpSuccess) { success in
+                    if success {
+                        dismiss()
+                    }
+                }
             }
         }
         .navigationBarHidden(true)
@@ -188,9 +264,15 @@ struct SignUpView: View {
         .padding(.horizontal, 20)
         .background(textColorForCurrentColorScheme())
         .onTapGesture {hideKeyboard()}
-        
         .onAppear {
             setColorScheme()
+            backToSignInView()
+        }
+    }
+    
+    private func backToSignInView() {
+        if signUpViewModel.signUpSuccess {
+            dismiss()
         }
     }
     
@@ -215,5 +297,5 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
 }
 
 #Preview {
-    SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository())))
+    SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))
 }
