@@ -12,5 +12,5 @@ protocol EmailRepositoryProtocol {
     
     func sendEmail(sendEmailRequest: SendEmailRequest) -> AnyPublisher<EmailSendResponse, ErrorResponse>
     
-//    func checkEmailCode(emailCode: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    func codeCheck(code: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
 }

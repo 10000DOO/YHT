@@ -13,6 +13,6 @@ protocol EmailServiceProtocol {
     func sendEmail(email: String) -> AnyPublisher<Never, ErrorResponse>
     
     func checkEmailValidation(email: String) -> Bool
-    
-//    func checkCode(emailCode: String) -> AnyPublisher<String, ErrorResponse>
+
+    func codeCheck(code: String) -> AnyPublisher<Bool, ErrorResponse>
 }

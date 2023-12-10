@@ -39,12 +39,12 @@ class FindPwViewModel: ObservableObject {
     
     func emailButtonClick() {
         emailService.sendEmail(email: emailText)
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.emailError = error.error.first!.error
+                    self?.emailError = error.error.first!.error
                 }
             } receiveValue: { response in
             }.store(in: &cancellables)
@@ -64,5 +64,33 @@ class FindPwViewModel: ObservableObject {
         } else {
             passwordCheckError = ErrorMessage.passwordNotMatching.rawValue
         }
+    }
+    
+    func codeCheckButtonClicked() {
+        emailService.codeCheck(code: codeText)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.codeError = error.error.first!.error
+                }
+            } receiveValue: { [weak self] response in
+                self?.isCodeRight = true
+            }.store(in: &cancellables)
+    }
+    
+    func passwordChangeButtonClicked() {
+        memberService.changePassowrd(password: passwordText, email: emailText)
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.codeError = error.error.first!.error
+                }
+            } receiveValue: { [weak self] response in
+                self?.isPasswordChanged = response
+            }.store(in: &cancellables)
     }
 }

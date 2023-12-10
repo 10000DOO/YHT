@@ -11,6 +11,7 @@ import Combine
 struct FindPwView: View {
     @State private var colorScheme: ColorScheme = .light
     @ObservedObject private var findPwViewModel: FindPwViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(findPwViewModel: FindPwViewModel) {
         self.findPwViewModel = findPwViewModel
@@ -90,6 +91,7 @@ struct FindPwView: View {
                         alignment: .leading
                     )
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    .disabled(findPwViewModel.isCodeRight)
                 
                 HStack {
                     Text(findPwViewModel.codeError)
@@ -102,7 +104,7 @@ struct FindPwView: View {
                 
                 if !findPwViewModel.isCodeRight {
                     Button(action: {
-                        findPwViewModel.isCodeRight = true
+                        findPwViewModel.codeCheckButtonClicked()
                     }) {
                         Text("인증코드 확인")
                             .fontWeight(.bold)
@@ -187,7 +189,7 @@ struct FindPwView: View {
                     
                     VStack {
                         Button(action: {
-                            print("변경")
+                            findPwViewModel.passwordChangeButtonClicked()
                         }) {
                             Text("비밀번호 변경")
                                 .fontWeight(.bold)
@@ -196,6 +198,11 @@ struct FindPwView: View {
                                 .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                                 .foregroundColor(textColorForCurrentColorScheme())
                                 .cornerRadius(8)
+                                .onReceive(findPwViewModel.$isPasswordChanged) { success in
+                                    if success {
+                                        dismiss()
+                                    }
+                                }
                         }
                     }
                 }

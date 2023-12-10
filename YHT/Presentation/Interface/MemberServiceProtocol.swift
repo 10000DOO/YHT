@@ -19,4 +19,6 @@ protocol MemberServiceProtocol {
     func signIn(id: String, password: String) -> AnyPublisher<String, ErrorResponse>
     
     func findId(code: String) -> AnyPublisher<String, ErrorResponse>
+    
+    func changePassowrd(password: String, email: String) -> AnyPublisher<Bool, ErrorResponse>
 }

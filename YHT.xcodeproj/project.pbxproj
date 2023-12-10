@@ -25,6 +25,7 @@
 		6915E83E2B24C5060031EBEC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83D2B24C5060031EBEC /* Realm */; };
 		6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83F2B24C5060031EBEC /* RealmSwift */; };
 		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
+		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
 		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
 		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
 		699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E92B25768A00E411E3 /* FindPwView.swift */; };
@@ -100,6 +101,7 @@
 		6915E8352B24B9670031EBEC /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		6915E83B2B24C4950031EBEC /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
 		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
 		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
 		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		699872E92B25768A00E411E3 /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				69E232502B247F39004C4D0D /* SignUpRequest.swift */,
 				6915E8332B24B7B00031EBEC /* SignInRequest.swift */,
+				6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */,
 			);
 			path = MemberDTO;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				69E232492B244A3D004C4D0D /* MemberService.swift in Sources */,
 				69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */,
 				69046E142B22094D00764D1A /* EmailService.swift in Sources */,
+				6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */,
 				69046E162B22096E00764D1A /* EmailServiceProtocol.swift in Sources */,
 				699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */,
 				69E2324F2B246C80004C4D0D /* MemberRepositoryProtocol.swift in Sources */,

@@ -57,7 +57,7 @@ class MemberService: MemberServiceProtocol {
                     case .failure(let error):
                         promise(.failure(error))
                     }
-                } receiveValue: { response in
+                } receiveValue: { [weak self] response in
                     UserDefaults.standard.set(response.data.username, forKey: "username")
                     
                     let accessToken = TokenData()
@@ -84,12 +84,26 @@ class MemberService: MemberServiceProtocol {
                     case .finished:
                         break
                     case .failure(let error):
-                        print(error)
                         promise(.failure(error))
                     }
                 } receiveValue: { response in
-                    print(response.data)
                     promise(.success(response.data))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
+    
+    func changePassowrd(password: String, email: String) -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.memberRepository.changePassword(changePasswordRequest: ChangePasswordRequest(password: password, email: email))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(true))
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }

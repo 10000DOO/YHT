@@ -266,13 +266,6 @@ struct SignUpView: View {
         .onTapGesture {hideKeyboard()}
         .onAppear {
             setColorScheme()
-            backToSignInView()
-        }
-    }
-    
-    private func backToSignInView() {
-        if signUpViewModel.signUpSuccess {
-            dismiss()
         }
     }
     

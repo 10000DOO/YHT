@@ -37,4 +37,20 @@ class EmailService: EmailServiceProtocol {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
+    
+    func codeCheck(code: String) -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.emailRepository.codeCheck(code: code)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(true))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
 }

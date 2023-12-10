@@ -15,4 +15,6 @@ protocol MemberRepositoryProtocol {
     func signIn(signInRequest: SignInRequest) -> AnyPublisher<SignInResponse, ErrorResponse>
     
     func findId(code: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func changePassword(changePasswordRequest: ChangePasswordRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
 }
