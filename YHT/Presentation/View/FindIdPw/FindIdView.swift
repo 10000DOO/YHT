@@ -22,10 +22,60 @@ struct FindIdView: View {
             .frame(width: 180, height: 90)
             .padding(.bottom, 50)
             .padding(.top, 80)
+
         ScrollView {
-            VStack (alignment: .center, spacing: 20){
-                HStack {
-                    TextField("이메일", text: $findIdViewModel.emailText)
+            if findIdViewModel.findedId == "" {
+                VStack (alignment: .center, spacing: 20){
+                    HStack {
+                        TextField("이메일", text: $findIdViewModel.emailText)
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
+                            .padding(.leading, 30)
+                            .background(Color(uiColor: .clear))
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "envelope")
+                                        .foregroundColor(.gray)
+                                        .padding(.leading, 5)
+                                    Spacer()
+                                }
+                                    .frame(maxWidth: .infinity, alignment: .leading),
+                                alignment: .leading
+                            )
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                                findIdViewModel.isValidEmail()
+                            }
+                        
+                        Button(action: {
+                            findIdViewModel.emailButtonClick()
+                        }) {
+                            Text("코드 발송")
+                            .fontWeight(.bold)
+                            .frame(height: 50)
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                            .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                            .foregroundColor(textColorForCurrentColorScheme())
+                            .cornerRadius(8)
+                        }
+                    }
+                    
+                    HStack {
+                        if findIdViewModel.emailError == ErrorMessage.availableEmail.rawValue {
+                            Text(findIdViewModel.emailError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.blue)
+                        } else {
+                            Text(findIdViewModel.emailError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.red)
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, -20)
+                    .frame(height: 10)
+                    
+                    TextField("인증코드", text: $findIdViewModel.codeText)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -41,78 +91,41 @@ struct FindIdView: View {
                             alignment: .leading
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
-                        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
-                            findIdViewModel.isValidEmail()
-                        }
                     
-                    Button(action: {
-                        findIdViewModel.emailButtonClick()
-                    }) {
-                        Text("코드 발송")
-                        .fontWeight(.bold)
-                        .frame(height: 50)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                        .foregroundColor(textColorForCurrentColorScheme())
-                        .cornerRadius(8)
-                    }
-                }
-                
-                HStack {
-                    if findIdViewModel.emailError == ErrorMessage.availableEmail.rawValue {
-                        Text(findIdViewModel.emailError)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.blue)
-                    } else {
-                        Text(findIdViewModel.emailError)
+                    HStack {
+                        Text(findIdViewModel.codeError)
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
+                        Spacer()
                     }
-                    Spacer()
-                }
-                .padding(.top, -20)
-                .frame(height: 10)
-                
-                TextField("인증코드", text: $findIdViewModel.codeText)
-                    .frame(height: 50)
-                    .frame(maxWidth: .infinity)
-                    .padding(.leading, 30)
-                    .background(Color(uiColor: .clear))
-                    .overlay(
-                        HStack {
-                            Image(systemName: "envelope")
-                                .foregroundColor(.gray)
-                                .padding(.leading, 5)
-                            Spacer()
+                    .padding(.top, -20)
+                    .frame(height: 10)
+                    
+                    VStack {
+                        Button(action: {
+                            findIdViewModel.findIdButtonClicked()
+                        }) {
+                            Text("아이디 찾기")
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 50)
+                            .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                            .foregroundColor(textColorForCurrentColorScheme())
+                            .cornerRadius(8)
                         }
-                            .frame(maxWidth: .infinity, alignment: .leading),
-                        alignment: .leading
-                    )
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
-                
-                HStack {
-                    Text(findIdViewModel.codeError)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                    Spacer()
-                }
-                .padding(.top, -20)
-                .frame(height: 10)
-                
-                
-                
-                VStack {
-                    Button(action: {
-                        print("인증")
-                    }) {
-                        Text("인증코드 확인")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                        .foregroundColor(textColorForCurrentColorScheme())
-                        .cornerRadius(8)
                     }
+                }
+            } else {
+                VStack {
+                    Text("아이디")
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                    
+                    Text(findIdViewModel.findedId)
+                        .font(.system(size: 30))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(.label))
                 }
             }
         }

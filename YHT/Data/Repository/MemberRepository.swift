@@ -81,4 +81,37 @@ class MemberRepository: MemberRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func findId(code: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/find/id",
+                       method: .get,
+                       parameters: ["code" : code],
+                       encoder: URLEncodedFormParameterEncoder.default,
+                       headers: ["Content-Type": "application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let queryResponse = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                        print(queryResponse)
+                        promise(.success(queryResponse))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            print(errorResponse)
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

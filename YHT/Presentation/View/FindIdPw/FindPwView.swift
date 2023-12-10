@@ -102,7 +102,6 @@ struct FindPwView: View {
                 
                 if !findPwViewModel.isCodeRight {
                     Button(action: {
-                        print("인증")
                         findPwViewModel.isCodeRight = true
                     }) {
                         Text("인증코드 확인")

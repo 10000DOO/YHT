@@ -31,7 +31,7 @@ class SignInViewModel: ObservableObject {
                         let errorMessage = error.error.first!.error
                         self?.signInError = errorMessage
                     }
-                } receiveValue: { [weak self] response in
+                } receiveValue: { response in
                    
                 }.store(in: &cancellables)
         }

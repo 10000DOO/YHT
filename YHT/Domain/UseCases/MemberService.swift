@@ -75,4 +75,22 @@ class MemberService: MemberServiceProtocol {
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }
+    
+    func findId(code: String) -> AnyPublisher<String, ErrorResponse> {
+        return Future<String, ErrorResponse> { [weak self] promise in
+            self?.memberRepository.findId(code: code)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    print(response.data)
+                    promise(.success(response.data))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
 }
