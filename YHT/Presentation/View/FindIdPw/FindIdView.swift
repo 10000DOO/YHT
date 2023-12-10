@@ -1,5 +1,5 @@
 //
-//  FindIdPwView.swift
+//  FindIdView.swift
 //  YHT
 //
 //  Created by 이건준 on 12/10/23.
@@ -8,12 +8,12 @@
 import SwiftUI
 import Combine
 
-struct FindIdPwView: View {
+struct FindIdView: View {
     @State private var colorScheme: ColorScheme = .light
-    @ObservedObject private var findIdPwViewModel: FindIdPwViewModel
+    @ObservedObject private var findIdViewModel: FindIdViewModel
     
-    init(findIdPwViewModel: FindIdPwViewModel) {
-        self.findIdPwViewModel = findIdPwViewModel
+    init(findIdViewModel: FindIdViewModel) {
+        self.findIdViewModel = findIdViewModel
     }
     
     var body: some View {
@@ -25,7 +25,7 @@ struct FindIdPwView: View {
         ScrollView {
             VStack (alignment: .center, spacing: 20){
                 HStack {
-                    TextField("이메일", text: $findIdPwViewModel.emailText)
+                    TextField("이메일", text: $findIdViewModel.emailText)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -42,11 +42,11 @@ struct FindIdPwView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
-                            findIdPwViewModel.isValidEmail()
+                            findIdViewModel.isValidEmail()
                         }
                     
                     Button(action: {
-                        findIdPwViewModel.emailButtonClick()
+                        findIdViewModel.emailButtonClick()
                     }) {
                         Text("코드 발송")
                         .fontWeight(.bold)
@@ -59,12 +59,12 @@ struct FindIdPwView: View {
                 }
                 
                 HStack {
-                    if findIdPwViewModel.emailError == ErrorMessage.availableEmail.rawValue {
-                        Text(findIdPwViewModel.emailError)
+                    if findIdViewModel.emailError == ErrorMessage.availableEmail.rawValue {
+                        Text(findIdViewModel.emailError)
                             .fontWeight(.bold)
                             .foregroundColor(Color.blue)
                     } else {
-                        Text(findIdPwViewModel.emailError)
+                        Text(findIdViewModel.emailError)
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                     }
@@ -73,7 +73,7 @@ struct FindIdPwView: View {
                 .padding(.top, -20)
                 .frame(height: 10)
                 
-                TextField("인증코드", text: $findIdPwViewModel.codeText)
+                TextField("인증코드", text: $findIdViewModel.codeText)
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
                     .padding(.leading, 30)
@@ -91,7 +91,7 @@ struct FindIdPwView: View {
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                 
                 HStack {
-                    Text(findIdPwViewModel.codeError)
+                    Text(findIdViewModel.codeError)
                         .fontWeight(.bold)
                         .foregroundColor(Color.red)
                     Spacer()
@@ -136,5 +136,5 @@ struct FindIdPwView: View {
 }
 
 #Preview {
-    FindIdPwView(findIdPwViewModel: FindIdPwViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))
+    FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))
 }
