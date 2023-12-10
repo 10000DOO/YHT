@@ -72,27 +72,27 @@ struct SignInView: View {
                     signInViewModel.signInButtonClicked()
                 }) {
                     Text("로그인")
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                    .foregroundColor(textColorForCurrentColorScheme())
-                    .cornerRadius(8)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .foregroundColor(textColorForCurrentColorScheme())
+                        .cornerRadius(8)
                 }.padding(.top, 60)
                 
                 HStack(alignment: .center, spacing: 30) {
-                    Button("아이디 찾기") {
-                        print("아이디 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("아이디 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
-                    Button("비밀번호 찾기") {
-                        print("비밀번호 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindPwView(findPwViewModel: FindPwViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("비밀번호 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
                     NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
                         Text("회원가입")
                             .foregroundColor(Color(.label))

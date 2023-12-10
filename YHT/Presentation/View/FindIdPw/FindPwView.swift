@@ -44,17 +44,18 @@ struct FindPwView: View {
                         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
                             findPwViewModel.isValidEmail()
                         }
+                        .disabled(findPwViewModel.isCodeRight)
                     
                     Button(action: {
                         findPwViewModel.emailButtonClick()
                     }) {
                         Text("코드 발송")
-                        .fontWeight(.bold)
-                        .frame(height: 50)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                        .foregroundColor(textColorForCurrentColorScheme())
-                        .cornerRadius(8)
+                            .fontWeight(.bold)
+                            .frame(height: 50)
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                            .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                            .foregroundColor(textColorForCurrentColorScheme())
+                            .cornerRadius(8)
                     }
                 }
                 
@@ -99,21 +100,107 @@ struct FindPwView: View {
                 .padding(.top, -20)
                 .frame(height: 10)
                 
-                
-                
-                VStack {
+                if !findPwViewModel.isCodeRight {
                     Button(action: {
                         print("인증")
+                        findPwViewModel.isCodeRight = true
                     }) {
                         Text("인증코드 확인")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 50)
+                            .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                            .foregroundColor(textColorForCurrentColorScheme())
+                            .cornerRadius(8)
+                        
+                        Text("")
+                            .padding(.top, -20)
+                            .frame(height: 10)
+                    }
+                } else {
+                    TextField("비밀번호", text: $findPwViewModel.passwordText)
                         .frame(height: 50)
-                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                        .foregroundColor(textColorForCurrentColorScheme())
-                        .cornerRadius(8)
+                        .frame(maxWidth: .infinity)
+                        .padding(.leading, 30)
+                        .background(Color(uiColor: .clear))
+                        .overlay(
+                            HStack {
+                                Image(systemName: "lock")
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                                .frame(maxWidth: .infinity, alignment: .leading),
+                            alignment: .leading
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                            findPwViewModel.isValidPassword()
+                        }
+                    
+                    HStack {
+                        if findPwViewModel.passwordError == ErrorMessage.availablePassword.rawValue {
+                            Text(findPwViewModel.passwordError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.blue)
+                        } else {
+                            Text(findPwViewModel.passwordError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.red)
+                        }
+                        Spacer()
+                    }.padding(.top, -20)
+                        .frame(height: 10)
+                    
+                    TextField("비밀번호 확인", text: $findPwViewModel.confirmPasswordText)
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity)
+                        .padding(.leading, 30)
+                        .background(Color(uiColor: .clear))
+                        .overlay(
+                            HStack {
+                                Image(systemName: "lock")
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                                .frame(maxWidth: .infinity, alignment: .leading),
+                            alignment: .leading
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                            findPwViewModel.isValidPasswordCheck()
+                        }
+                    
+                    HStack {
+                        if findPwViewModel.passwordCheckError == ErrorMessage.passwordMatching.rawValue {
+                            Text(findPwViewModel.passwordCheckError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.blue)
+                        } else {
+                            Text(findPwViewModel.passwordCheckError)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.red)
+                        }
+                        Spacer()
+                    }.padding(.top, -20)
+                        .frame(height: 10)
+                    
+                    VStack {
+                        Button(action: {
+                            print("변경")
+                        }) {
+                            Text("비밀번호 변경")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 50)
+                                .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                .foregroundColor(textColorForCurrentColorScheme())
+                                .cornerRadius(8)
+                        }
                     }
                 }
+                
             }
         }
         .navigationBarHidden(true)

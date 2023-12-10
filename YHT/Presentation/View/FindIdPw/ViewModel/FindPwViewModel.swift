@@ -14,7 +14,12 @@ class FindPwViewModel: ObservableObject {
     @Published var codeText: String = ""
     @Published var emailError: String = ""
     @Published var codeError: String = ""
-    @Published var signUpSuccess: Bool = false
+    @Published var passwordText: String = ""
+    @Published var confirmPasswordText: String = ""
+    @Published var passwordError: String = ""
+    @Published var passwordCheckError: String = ""
+    @Published var isCodeRight: Bool = false
+    @Published var isPasswordChanged: Bool = false
     private let emailService: EmailServiceProtocol
     private let memberService: MemberServiceProtocol
     var cancellables = Set<AnyCancellable>()
@@ -43,5 +48,21 @@ class FindPwViewModel: ObservableObject {
                 }
             } receiveValue: { response in
             }.store(in: &cancellables)
+    }
+    
+    func isValidPassword() {
+        if memberService.checkPasswordValidation(password: passwordText) {
+            passwordError = ErrorMessage.availablePassword.rawValue
+        } else {
+            passwordError = ErrorMessage.wrongPasswordPattern.rawValue
+        }
+    }
+    
+    func isValidPasswordCheck() {
+        if passwordText == confirmPasswordText && !passwordText.isEmpty {
+            passwordCheckError = ErrorMessage.passwordMatching.rawValue
+        } else {
+            passwordCheckError = ErrorMessage.passwordNotMatching.rawValue
+        }
     }
 }

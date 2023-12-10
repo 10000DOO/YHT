@@ -14,7 +14,6 @@ class FindIdViewModel: ObservableObject {
     @Published var codeText: String = ""
     @Published var emailError: String = ""
     @Published var codeError: String = ""
-    @Published var signUpSuccess: Bool = false
     private let emailService: EmailServiceProtocol
     private let memberService: MemberServiceProtocol
     var cancellables = Set<AnyCancellable>()
