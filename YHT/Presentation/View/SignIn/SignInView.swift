@@ -81,18 +81,18 @@ struct SignInView: View {
                 }.padding(.top, 60)
                 
                 HStack(alignment: .center, spacing: 30) {
-                    Button("아이디 찾기") {
-                        print("아이디 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("아이디 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
-                    Button("비밀번호 찾기") {
-                        print("비밀번호 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindPwView(findPwViewModel: FindPwViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("비밀번호 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
                     NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
                         Text("회원가입")
                             .foregroundColor(Color(.label))
