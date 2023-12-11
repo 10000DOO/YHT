@@ -76,7 +76,7 @@ struct SignUpView: View {
                 .frame(height: 10)
                 
                 if signUpViewModel.isCodeTextFieldVisible {
-                    TextField("인증 코드", text: $signUpViewModel.codeText)
+                    TextField("인증코드", text: $signUpViewModel.codeText)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -266,13 +266,6 @@ struct SignUpView: View {
         .onTapGesture {hideKeyboard()}
         .onAppear {
             setColorScheme()
-            backToSignInView()
-        }
-    }
-    
-    private func backToSignInView() {
-        if signUpViewModel.signUpSuccess {
-            dismiss()
         }
     }
     

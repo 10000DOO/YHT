@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State var id: String = ""
-    @State var password: String = ""
     @State private var colorScheme: ColorScheme = .light
-    @State private var isActive: Bool = false
+    @ObservedObject private var signInViewModel: SignInViewModel
+    
+    init(signInViewModel: SignInViewModel) {
+        self.signInViewModel = signInViewModel
+    }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("Logo")
                     .resizable()
                     .frame(width: 180, height: 90)
                     .padding(.bottom, 80)
                     .padding(.top, 80)
-                VStack(alignment: .center, spacing: 20) {
-                    TextField("아이디", text: $id)
+                VStack(alignment: .center, spacing: 30) {
+                    TextField("아이디", text: $signInViewModel.id)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -39,7 +41,7 @@ struct SignInView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
                     
-                    SecureField("비밀번호", text: $password)
+                    SecureField("비밀번호", text: $signInViewModel.password)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -55,33 +57,50 @@ struct SignInView: View {
                             alignment: .leading
                         )
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                    
+                    HStack {
+                        Text(signInViewModel.signInError)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                        Spacer()
+                    }
+                    .padding(.top, -20)
+                    .frame(height: 10)
                 }
                 
                 Button(action: {
-                    print("로그인")
+                    signInViewModel.signInButtonClicked()
                 }) {
                     Text("로그인")
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                    .foregroundColor(textColorForCurrentColorScheme())
-                    .cornerRadius(8)
-                }.padding(.top, 70)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .foregroundColor(textColorForCurrentColorScheme())
+                        .cornerRadius(8)
+                        .onReceive(signInViewModel.$signInSuccess) { success in
+                            if success {
+                                UserDefaults.standard.set(true, forKey: "isAlreadySignIn")
+                            }
+                        }
+                }.padding(.top, 60)
+                    .fullScreenCover(isPresented: $signInViewModel.signInSuccess) {
+                        TabView()
+                    }
                 
                 HStack(alignment: .center, spacing: 30) {
-                    Button("아이디 찾기") {
-                        print("아이디 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("아이디 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
-                    Button("비밀번호 찾기") {
-                        print("비밀번호 찾기")
-                    }
-                    .fontWeight(.bold)
+                    NavigationLink(destination: FindPwView(findPwViewModel: FindPwViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
+                        Text("비밀번호 찾기")
+                            .foregroundColor(Color(.label))
+                            .fontWeight(.bold)
+                    }.foregroundColor(.white)
                     
-                    .foregroundColor(Color(.label))
                     NavigationLink(destination: SignUpView(signUpViewModel: SignUpViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
                         Text("회원가입")
                             .foregroundColor(Color(.label))
@@ -93,6 +112,7 @@ struct SignInView: View {
             }
             .padding(.horizontal, 20)
         }
+        .onTapGesture {hideKeyboard()}
         .onAppear {
             setColorScheme()
         }
@@ -108,5 +128,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
 }

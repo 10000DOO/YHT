@@ -11,4 +11,10 @@ import Combine
 protocol MemberRepositoryProtocol {
     
     func join(code: String, signUpRequest: SignUpRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func signIn(signInRequest: SignInRequest) -> AnyPublisher<SignInResponse, ErrorResponse>
+    
+    func findId(code: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func changePassword(changePasswordRequest: ChangePasswordRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
 }

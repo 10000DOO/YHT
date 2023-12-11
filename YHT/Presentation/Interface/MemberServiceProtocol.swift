@@ -15,4 +15,10 @@ protocol MemberServiceProtocol {
     func checkPasswordValidation(password: String) -> Bool
     
     func signUp(email: String, emailCode: String, id: String, password: String, username: String) -> AnyPublisher<String, ErrorResponse>
+    
+    func signIn(id: String, password: String) -> AnyPublisher<String, ErrorResponse>
+    
+    func findId(code: String) -> AnyPublisher<String, ErrorResponse>
+    
+    func changePassowrd(password: String, email: String) -> AnyPublisher<Bool, ErrorResponse>
 }

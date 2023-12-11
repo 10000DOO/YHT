@@ -18,6 +18,19 @@
 		69046E212B220CB100764D1A /* EmailSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E202B220CB100764D1A /* EmailSendResponse.swift */; };
 		69046E242B220FE900764D1A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 69046E232B220FE900764D1A /* Alamofire */; };
 		69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69046E252B22117300764D1A /* SendEmailRequest.swift */; };
+		6915E8312B24AE2F0031EBEC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */; };
+		6915E8342B24B7B00031EBEC /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8332B24B7B00031EBEC /* SignInRequest.swift */; };
+		6915E8362B24B9670031EBEC /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8352B24B9670031EBEC /* SignInResponse.swift */; };
+		6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E83B2B24C4950031EBEC /* TokenData.swift */; };
+		6915E83E2B24C5060031EBEC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83D2B24C5060031EBEC /* Realm */; };
+		6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83F2B24C5060031EBEC /* RealmSwift */; };
+		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
+		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
+		6986C62B2B263D07000BCAA9 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C62A2B263D07000BCAA9 /* TabView.swift */; };
+		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
+		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
+		699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E92B25768A00E411E3 /* FindPwView.swift */; };
+		699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872EB2B25769900E411E3 /* FindPwViewModel.swift */; };
 		69AD83A02B10942300448107 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD839F2B10942300448107 /* ViewExtension.swift */; };
 		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
 		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
@@ -84,6 +97,17 @@
 		69046E1D2B220C9200764D1A /* CommonSuccessRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSuccessRes.swift; sourceTree = "<group>"; };
 		69046E202B220CB100764D1A /* EmailSendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSendResponse.swift; sourceTree = "<group>"; };
 		69046E252B22117300764D1A /* SendEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailRequest.swift; sourceTree = "<group>"; };
+		6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		6915E8332B24B7B00031EBEC /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		6915E8352B24B9670031EBEC /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		6915E83B2B24C4950031EBEC /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
+		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
+		6986C62A2B263D07000BCAA9 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
+		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
+		699872E92B25768A00E411E3 /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
+		699872EB2B25769900E411E3 /* FindPwViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewModel.swift; sourceTree = "<group>"; };
 		69AD839F2B10942300448107 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		69B3629F2B07B37400714B3B /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B362A22B07B37400714B3B /* YHTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTApp.swift; sourceTree = "<group>"; };
@@ -117,6 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */,
+				6915E83E2B24C5060031EBEC /* Realm in Frameworks */,
 				69046E242B220FE900764D1A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +178,76 @@
 				69046E202B220CB100764D1A /* EmailSendResponse.swift */,
 			);
 			path = Email;
+			sourceTree = "<group>";
+		};
+		6915E82F2B24AE210031EBEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6915E8302B24AE2F0031EBEC /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6915E8322B24B7950031EBEC /* MemberDTO */ = {
+			isa = PBXGroup;
+			children = (
+				69E232502B247F39004C4D0D /* SignUpRequest.swift */,
+				6915E8332B24B7B00031EBEC /* SignInRequest.swift */,
+				6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */,
+			);
+			path = MemberDTO;
+			sourceTree = "<group>";
+		};
+		6915E8372B24B9700031EBEC /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				6915E8352B24B9670031EBEC /* SignInResponse.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6915E8382B24B9830031EBEC /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				69046E252B22117300764D1A /* SendEmailRequest.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		6915E83A2B24C4820031EBEC /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				6915E83B2B24C4950031EBEC /* TokenData.swift */,
+				6915E8432B24D3330031EBEC /* Query.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		6986C6292B263CD8000BCAA9 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				6986C62A2B263D07000BCAA9 /* TabView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		699872E12B2571D800E411E3 /* FindIdPw */ = {
+			isa = PBXGroup;
+			children = (
+				699872E42B25728500E411E3 /* ViewModel */,
+				699872E22B2571F300E411E3 /* FindIdView.swift */,
+				699872E92B25768A00E411E3 /* FindPwView.swift */,
+			);
+			path = FindIdPw;
+			sourceTree = "<group>";
+		};
+		699872E42B25728500E411E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				699872E52B25729400E411E3 /* FindIdViewModel.swift */,
+				699872EB2B25769900E411E3 /* FindPwViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		69B362962B07B37400714B3B = {
@@ -257,6 +353,7 @@
 		69C9A1B22B0F021D0056C37A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				6915E8372B24B9700031EBEC /* SignIn */,
 				69046E1F2B220C9F00764D1A /* Email */,
 				69046E172B22099F00764D1A /* ErrorResponse.swift */,
 				69046E1D2B220C9200764D1A /* CommonSuccessRes.swift */,
@@ -296,8 +393,8 @@
 		69C9A1B62B0F02780056C37A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				69046E252B22117300764D1A /* SendEmailRequest.swift */,
-				69E232502B247F39004C4D0D /* SignUpRequest.swift */,
+				6915E8382B24B9830031EBEC /* Email */,
+				6915E8322B24B7950031EBEC /* MemberDTO */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +402,7 @@
 		69C9A1B72B0F028C0056C37A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6915E83A2B24C4820031EBEC /* DataBase */,
 				69C9A1B82B0F02920056C37A /* Repository */,
 			);
 			path = Data;
@@ -322,6 +420,8 @@
 		69C9A1BA2B0F02D10056C37A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6986C6292B263CD8000BCAA9 /* TabView */,
+				699872E12B2571D800E411E3 /* FindIdPw */,
 				69C9A1C22B0F29BC0056C37A /* SignUp */,
 				69C9A1BF2B0F046E0056C37A /* SignIn */,
 				69B362A42B07B37400714B3B /* ContentView.swift */,
@@ -348,6 +448,7 @@
 		69C9A1BF2B0F046E0056C37A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				6915E82F2B24AE210031EBEC /* ViewModel */,
 				69C9A1C02B0F04840056C37A /* SignInView.swift */,
 			);
 			path = SignIn;
@@ -399,6 +500,8 @@
 			name = YHT;
 			packageProductDependencies = (
 				69046E232B220FE900764D1A /* Alamofire */,
+				6915E83D2B24C5060031EBEC /* Realm */,
+				6915E83F2B24C5060031EBEC /* RealmSwift */,
 			);
 			productName = YHT;
 			productReference = 69B3629F2B07B37400714B3B /* YHT.app */;
@@ -474,6 +577,7 @@
 			mainGroup = 69B362962B07B37400714B3B;
 			packageReferences = (
 				69046E222B220FE900764D1A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 69B362A02B07B37400714B3B /* Products */;
 			projectDirPath = "";
@@ -522,11 +626,18 @@
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
 				69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */,
+				6915E8362B24B9670031EBEC /* SignInResponse.swift in Sources */,
 				69046E1A2B220C2B00764D1A /* EmailRepository.swift in Sources */,
+				6915E8312B24AE2F0031EBEC /* SignInViewModel.swift in Sources */,
 				69046E212B220CB100764D1A /* EmailSendResponse.swift in Sources */,
 				69046E0E2B219D9700764D1A /* SignUpViewModel.swift in Sources */,
+				6915E8342B24B7B00031EBEC /* SignInRequest.swift in Sources */,
 				69046E1C2B220C3900764D1A /* EmailRepositoryProtocol.swift in Sources */,
+				6915E8442B24D3330031EBEC /* Query.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
+				699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */,
+				6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */,
+				699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */,
 				69046E1E2B220C9200764D1A /* CommonSuccessRes.swift in Sources */,
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69AD83A02B10942300448107 /* ViewExtension.swift in Sources */,
@@ -536,10 +647,14 @@
 				69E232492B244A3D004C4D0D /* MemberService.swift in Sources */,
 				69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */,
 				69046E142B22094D00764D1A /* EmailService.swift in Sources */,
+				6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */,
 				69046E162B22096E00764D1A /* EmailServiceProtocol.swift in Sources */,
+				699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */,
+				6986C62B2B263D07000BCAA9 /* TabView.swift in Sources */,
 				69E2324F2B246C80004C4D0D /* MemberRepositoryProtocol.swift in Sources */,
 				69E232512B247F39004C4D0D /* SignUpRequest.swift in Sources */,
 				69E2324B2B244A57004C4D0D /* MemberServiceProtocol.swift in Sources */,
+				699872E32B2571F300E411E3 /* FindIdView.swift in Sources */,
 				69C9A1C12B0F04840056C37A /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -886,6 +1001,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -893,6 +1016,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69046E222B220FE900764D1A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		6915E83D2B24C5060031EBEC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		6915E83F2B24C5060031EBEC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6915E8392B24C43F0031EBEC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

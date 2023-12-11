@@ -19,7 +19,7 @@ class EmailService: EmailServiceProtocol {
     
     func sendEmail(email: String) -> AnyPublisher<Never, ErrorResponse> {
         return Future<Never, ErrorResponse> { [weak self] promise in
-            self?.emailRepository.sendEmail(email: email)
+            self?.emailRepository.sendEmail(sendEmailRequest: SendEmailRequest(email: email))
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -36,5 +36,21 @@ class EmailService: EmailServiceProtocol {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
+    }
+    
+    func codeCheck(code: String) -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.emailRepository.codeCheck(code: code)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(true))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
     }
 }

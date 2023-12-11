@@ -43,12 +43,12 @@ class SignUpViewModel: ObservableObject {
     
     func emailButtonClick() {
         emailService.sendEmail(email: emailText)
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.emailError = error.error.first!.error
+                    self?.emailError = error.error.first!.error
                 }
             } receiveValue: { response in
             }.store(in: &cancellables)
@@ -109,7 +109,6 @@ class SignUpViewModel: ObservableObject {
                         }
                     }
                 } receiveValue: { [weak self] response in
-                    UserDefaults.standard.set(response, forKey: "username")
                     self?.signUpSuccess = true
                 }.store(in: &cancellables)
         }
