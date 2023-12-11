@@ -13,6 +13,7 @@ class SignInViewModel: ObservableObject {
     @Published var id: String = ""
     @Published var password: String = ""
     @Published var signInError = ""
+    @Published var signInSuccess = false
     private let memberService: MemberServiceProtocol
     var cancellables = Set<AnyCancellable>()
     
@@ -31,8 +32,10 @@ class SignInViewModel: ObservableObject {
                         let errorMessage = error.error.first!.error
                         self?.signInError = errorMessage
                     }
-                } receiveValue: { response in
-                   
+                } receiveValue: { [weak self] response in
+                    UserDefaults.standard.setValue(response, forKey: "username")
+                    self?.signInError = ""
+                    self?.signInSuccess = true
                 }.store(in: &cancellables)
         }
     }

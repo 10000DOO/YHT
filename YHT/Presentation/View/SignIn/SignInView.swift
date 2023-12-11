@@ -16,7 +16,7 @@ struct SignInView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("Logo")
                     .resizable()
@@ -78,7 +78,15 @@ struct SignInView: View {
                         .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                         .foregroundColor(textColorForCurrentColorScheme())
                         .cornerRadius(8)
+                        .onReceive(signInViewModel.$signInSuccess) { success in
+                            if success {
+                                UserDefaults.standard.set(true, forKey: "isAlreadySignIn")
+                            }
+                        }
                 }.padding(.top, 60)
+                    .fullScreenCover(isPresented: $signInViewModel.signInSuccess) {
+                        TabView()
+                    }
                 
                 HStack(alignment: .center, spacing: 30) {
                     NavigationLink(destination: FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {
