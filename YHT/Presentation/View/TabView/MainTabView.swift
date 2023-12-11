@@ -12,12 +12,13 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Text("The First Tab")
+            RoutineView(routineViewModel: RoutineViewModel(gptService: GPTService(gptRepository: GPTRepository())))
                 .tabItem {
-                    Image(systemName: "list.bullet")
+                    Image(systemName: "dumbbell.fill")
                     Text("루틴 추천")
                 }
                 .tag(1)
+            
             Text("")
                 .tabItem {
                     Image(systemName: "figure.strengthtraining.traditional")
@@ -32,6 +33,7 @@ struct MainTabView: View {
             
         }
         .font(.headline)
+        .accentColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
     }
 }
 
