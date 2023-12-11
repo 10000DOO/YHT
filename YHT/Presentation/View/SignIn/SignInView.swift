@@ -85,7 +85,7 @@ struct SignInView: View {
                         }
                 }.padding(.top, 60)
                     .fullScreenCover(isPresented: $signInViewModel.signInSuccess) {
-                        TabView()
+                        MainTabView()
                     }
                 
                 HStack(alignment: .center, spacing: 30) {

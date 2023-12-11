@@ -26,7 +26,6 @@
 		6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83F2B24C5060031EBEC /* RealmSwift */; };
 		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
 		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
-		6986C62B2B263D07000BCAA9 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C62A2B263D07000BCAA9 /* TabView.swift */; };
 		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
 		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
 		699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E92B25768A00E411E3 /* FindPwView.swift */; };
@@ -52,6 +51,7 @@
 		69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */; };
 		69EF49792B07B5D7003DF6A9 /* Vuforia in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49782B07B5D7003DF6A9 /* Vuforia */; };
+		69FB699F2B26E0640025D517 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB699E2B26E0640025D517 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,6 @@
 		6915E83B2B24C4950031EBEC /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
 		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
-		6986C62A2B263D07000BCAA9 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
 		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		699872E92B25768A00E411E3 /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
@@ -129,11 +128,11 @@
 		69E2324C2B246C59004C4D0D /* MemberRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRepository.swift; sourceTree = "<group>"; };
 		69E2324E2B246C80004C4D0D /* MemberRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRepositoryProtocol.swift; sourceTree = "<group>"; };
 		69E232502B247F39004C4D0D /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
-		69EF496C2B07B486003DF6A9 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EF49702B07B493003DF6A9 /* UnityDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityDriver.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/UnityDriver.framework; sourceTree = "<group>"; };
 		69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
 		69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		69EF49782B07B5D7003DF6A9 /* Vuforia */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Vuforia; sourceTree = "<group>"; };
+		69FB699E2B26E0640025D517 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +225,7 @@
 		6986C6292B263CD8000BCAA9 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-				6986C62A2B263D07000BCAA9 /* TabView.swift */,
+				69FB699E2B26E0640025D517 /* MainTabView.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -468,7 +467,6 @@
 			children = (
 				69EF49702B07B493003DF6A9 /* UnityDriver.framework */,
 				69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */,
-				69EF496C2B07B486003DF6A9 /* UnityFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -645,12 +643,12 @@
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
 				69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */,
 				69E232492B244A3D004C4D0D /* MemberService.swift in Sources */,
+				69FB699F2B26E0640025D517 /* MainTabView.swift in Sources */,
 				69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */,
 				69046E142B22094D00764D1A /* EmailService.swift in Sources */,
 				6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */,
 				69046E162B22096E00764D1A /* EmailServiceProtocol.swift in Sources */,
 				699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */,
-				6986C62B2B263D07000BCAA9 /* TabView.swift in Sources */,
 				69E2324F2B246C80004C4D0D /* MemberRepositoryProtocol.swift in Sources */,
 				69E232512B247F39004C4D0D /* SignUpRequest.swift in Sources */,
 				69E2324B2B244A57004C4D0D /* MemberServiceProtocol.swift in Sources */,
@@ -823,6 +821,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "AR을 사용하기 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -855,6 +854,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "AR을 사용하기 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

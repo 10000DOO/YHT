@@ -12,7 +12,7 @@ struct YHTApp: App {
     var body: some Scene {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "isAlreadySignIn") {
-                TabView()
+                MainTabView()
             } else {
                 SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
             }
