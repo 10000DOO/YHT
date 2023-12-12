@@ -41,4 +41,35 @@ class GPTRepository: GPTRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func recommendDiet(dietRequest: DietRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/api/diet",
+                       method: .post,
+                       parameters: dietRequest,
+                       encoder: JSONParameterEncoder.default,
+                       headers: ["Content-Type": "application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let dietResult = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                        promise(.success(dietResult))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

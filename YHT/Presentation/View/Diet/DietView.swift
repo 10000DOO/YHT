@@ -1,19 +1,19 @@
 //
-//  RoutineView.swift
+//  DietView.swift
 //  YHT
 //
-//  Created by 이건준 on 12/11/23.
+//  Created by 이건준 on 12/12/23.
 //
 
 import SwiftUI
 
-struct RoutineView: View {
-    @ObservedObject private var routineViewModel: RoutineViewModel
+struct DietView: View {
+    @ObservedObject private var dietViewModel: DietViewModel
     let options = ["근육 증가", "체중 감량"]
     @State private var colorScheme: ColorScheme = .light
- 
-    init(routineViewModel: RoutineViewModel) {
-        self.routineViewModel = routineViewModel
+    
+    init(dietViewModel: DietViewModel) {
+        self.dietViewModel = dietViewModel
     }
     
     var body: some View {
@@ -32,7 +32,7 @@ struct RoutineView: View {
                             .font(.system(size: 20))
                         HStack(spacing: 20, content: {
                             ForEach(options, id: \.self) { option in
-                                RadioButton(selectedOption: $routineViewModel.exercisePurpose, text: option)
+                                RadioButton(selectedOption: $dietViewModel.exercisePurpose, text: option)
                             }
                         })
                         Spacer()
@@ -46,7 +46,7 @@ struct RoutineView: View {
                         
                         HStack(spacing: 20) {
                             HStack(spacing: -10) {
-                                Picker("", selection: $routineViewModel.height) {
+                                Picker("", selection: $dietViewModel.height) {
                                     ForEach(0..<231) { number in
                                         Text("\(number)")
                                     }
@@ -62,7 +62,7 @@ struct RoutineView: View {
                             }
                             
                             HStack(spacing: -10) {
-                                Picker("", selection: $routineViewModel.weight) {
+                                Picker("", selection: $dietViewModel.weight) {
                                     ForEach(0..<151) { number in
                                         Text("\(number)")
                                     }
@@ -81,32 +81,86 @@ struct RoutineView: View {
                     }
                     .padding(.leading, 20)
                     
-                    HStack(spacing: 40) {
-                        Text("운동 분할")
+                    HStack {
+                        Text("오늘 먹은 음식")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
-                        HStack(spacing: -10) {
-                            Picker("", selection: $routineViewModel.divisions) {
-                                ForEach(0..<6) { number in
-                                    Text("\(number)")
-                                }
-                            }
-                            .pickerStyle(WheelPickerStyle())
-                            .frame(height: 130)
-                            .frame(width: 60)
-                            
-                            Text("일")
-                                .font(.system(size: 15))
-                                .frame(width: 25)
-                                .fontWeight(.bold)
+                        Button(action: {
+                            dietViewModel.addFood = !dietViewModel.addFood
+                        }) {
+                            Image(systemName: "plus.circle")
+                                .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                .scaleEffect(1.3)
                         }
                         Spacer()
                     }
-                    .padding(.leading, 20)
+                    .padding(.horizontal, 20)
+                    
+                    if dietViewModel.diet.count > 0 {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(dietViewModel.diet.indices, id: \.self) { index in
+                                    Text(dietViewModel.diet[index])
+                                        .font(.system(size: 20))
+                                        .fontWeight(.bold)
+                                    
+                                    Button(action: {
+                                        dietViewModel.diet.remove(at: index)
+                                    }) {
+                                        Image(systemName: "x.circle")
+                                            .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                            .scaleEffect(1.2)
+                                    }
+                                    .padding(.leading, -15)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
+                    if dietViewModel.addFood {
+                        VStack {
+                            TextField("음식", text: $dietViewModel.food)
+                                .frame(height: 50)
+                                .frame(maxWidth: .infinity)
+                                .padding(.leading, 30)
+                                .background(Color(uiColor: .clear))
+                                .overlay(
+                                    HStack {
+                                        Image(systemName: "fork.knife")
+                                            .foregroundColor(.gray)
+                                            .padding(.leading, 5)
+                                        Spacer()
+                                    }
+                                        .frame(maxWidth: .infinity, alignment: .leading),
+                                    alignment: .leading
+                                )
+                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)), lineWidth: 1))
+                                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                                    dietViewModel.addFood = !dietViewModel.addFood
+                                    dietViewModel.food = ""
+                                }
+                                .padding(.horizontal, 20)
+                            
+                            Button(action: {
+                                dietViewModel.diet.append(dietViewModel.food)
+                                dietViewModel.food = ""
+                            }) {
+                                Text("추가")
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 50)
+                                    .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                    .foregroundColor(textColorForCurrentColorScheme())
+                                    .cornerRadius(8)
+                            }
+                            .padding(.horizontal, 20)
+                        }
+                    }
                     
                     Button(action: {
-                        routineViewModel.routineButtonClicked()
-                        routineViewModel.isGptSuccess = true
+                        dietViewModel.dietButtonClicked()
+                        dietViewModel.isGptSuccess = true
                     }) {
                         Text("추천 받기")
                             .fontWeight(.bold)
@@ -118,7 +172,7 @@ struct RoutineView: View {
                     }
                     .padding(.horizontal, 20)
                     
-                    if routineViewModel.isGptSuccess {
+                    if dietViewModel.isGptSuccess {
                         HStack {
                             Text("추천 결과")
                                 .padding(.leading, 20)
@@ -127,7 +181,7 @@ struct RoutineView: View {
                             Spacer()
                         }
                         
-                        Text(routineViewModel.result)
+                        Text(dietViewModel.result)
                             .lineLimit(nil)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
@@ -140,11 +194,13 @@ struct RoutineView: View {
                     }
                 })
             }
+        }
+        .onTapGesture {hideKeyboard()}
             .onAppear {
                 setColorScheme()
             }
-        }
     }
+    
     
     private func setColorScheme() {
         colorScheme = UIApplication.shared.windows.first?.rootViewController?.traitCollection.userInterfaceStyle == .dark ? .dark : .light
@@ -156,5 +212,5 @@ struct RoutineView: View {
 }
 
 #Preview {
-    RoutineView(routineViewModel: RoutineViewModel(gptService: GPTService(gptRepository: GPTRepository())))
+    DietView(dietViewModel: DietViewModel(gptService: GPTService(gptRepository: GPTRepository())))
 }
