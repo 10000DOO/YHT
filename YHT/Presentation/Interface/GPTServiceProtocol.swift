@@ -10,5 +10,7 @@ import Combine
 
 protocol GPTServiceProtocol {
     
-    func changePassowrd(healthPurpose: String, height: Int, weight: Int, divisions: Int) -> AnyPublisher<String, ErrorResponse>
+    func recommendRoutine(healthPurpose: String, height: Int, weight: Int, divisions: Int) -> AnyPublisher<String, ErrorResponse>
+    
+    func recommendDiet(healthPurpose: String, height: Int, weight: Int, diet: [String]) -> AnyPublisher<String, ErrorResponse>
 }

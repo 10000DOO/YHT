@@ -1,21 +1,23 @@
 //
-//  RoutineViewModel.swift
+//  DietViewModel.swift
 //  YHT
 //
-//  Created by 이건준 on 12/11/23.
+//  Created by 이건준 on 12/12/23.
 //
 
 import Foundation
 import Combine
 
-class RoutineViewModel: ObservableObject {
+class DietViewModel: ObservableObject {
     
     @Published var height = 170
     @Published var weight = 60
     @Published var exercisePurpose = ""
-    @Published var divisions = 3
-    @Published var result = ""
+    @Published var diet: [String] = []
+    @Published var result = "답변 생성중..."
     @Published var isGptSuccess = false
+    @Published var addFood = false
+    @Published var food = ""
     var cancellables = Set<AnyCancellable>()
     private let gptService: GPTServiceProtocol
     
@@ -23,14 +25,13 @@ class RoutineViewModel: ObservableObject {
         self.gptService = gptService
     }
     
-    func routineButtonClicked() {
-        result = "답변 생성중..."
+    func dietButtonClicked() {
         if exercisePurpose == "근육 증가" || exercisePurpose == ""{
             exercisePurpose = "MUSCLE_GAIN"
         } else {
             exercisePurpose = "LOOSING_WEIGHT"
         }
-        gptService.recommendRoutine(healthPurpose: exercisePurpose, height: height, weight: weight, divisions: divisions)
+        gptService.recommendDiet(healthPurpose: exercisePurpose, height: height, weight: weight, diet: diet)
             .sink { [weak self] completion in
                 switch completion {
                 case .finished:

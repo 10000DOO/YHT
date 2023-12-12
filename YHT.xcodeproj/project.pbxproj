@@ -33,6 +33,9 @@
 		695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */; };
 		695F94E22B27760400B33E7B /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E12B27760400B33E7B /* GPTService.swift */; };
 		695F94E42B2776D400B33E7B /* GPTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */; };
+		6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BC2B280C9100FA7CA0 /* DietView.swift */; };
+		6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */; };
+		6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8C12B28175900FA7CA0 /* DietRequest.swift */; };
 		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
 		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
 		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
@@ -118,6 +121,9 @@
 		695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepositoryProtocol.swift; sourceTree = "<group>"; };
 		695F94E12B27760400B33E7B /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTServiceProtocol.swift; sourceTree = "<group>"; };
+		6978E8BC2B280C9100FA7CA0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
+		6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
+		6978E8C12B28175900FA7CA0 /* DietRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRequest.swift; sourceTree = "<group>"; };
 		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
 		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
 		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
@@ -267,8 +273,26 @@
 			isa = PBXGroup;
 			children = (
 				695F94DD2B2774A300B33E7B /* RoutineRequest.swift */,
+				6978E8C12B28175900FA7CA0 /* DietRequest.swift */,
 			);
 			path = GPT;
+			sourceTree = "<group>";
+		};
+		6978E8BB2B280C7300FA7CA0 /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				6978E8BE2B280CAB00FA7CA0 /* ViewModel */,
+				6978E8BC2B280C9100FA7CA0 /* DietView.swift */,
+			);
+			path = Diet;
+			sourceTree = "<group>";
+		};
+		6978E8BE2B280CAB00FA7CA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6986C6292B263CD8000BCAA9 /* TabView */ = {
@@ -473,6 +497,7 @@
 		69C9A1BA2B0F02D10056C37A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6978E8BB2B280C7300FA7CA0 /* Diet */,
 				695F94D72B27063500B33E7B /* Component */,
 				695F94D12B26E86C00B33E7B /* Routine */,
 				6986C6292B263CD8000BCAA9 /* TabView */,
@@ -677,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */,
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
 				69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */,
@@ -695,6 +721,7 @@
 				695F94DB2B27743E00B33E7B /* GPTRepository.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
 				695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */,
+				6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */,
 				699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */,
 				6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */,
 				699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */,
@@ -702,6 +729,7 @@
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69AD83A02B10942300448107 /* ViewExtension.swift in Sources */,
 				69E2324D2B246C59004C4D0D /* MemberRepository.swift in Sources */,
+				6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */,
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
 				69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */,
 				69E232492B244A3D004C4D0D /* MemberService.swift in Sources */,

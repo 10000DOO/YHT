@@ -19,14 +19,21 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
+            DietView(dietViewModel: DietViewModel(gptService: GPTService(gptRepository: GPTRepository())))
+                .tabItem {
+                    Image(systemName: "fork.knife")
+                    Text("식단 추천")
+                }
+                .tag(2)
+            
             Text("")
                 .tabItem {
                     Image(systemName: "figure.strengthtraining.traditional")
                     Text("AR")
                 }
-                .tag(2)
+                .tag(3)
                 .onAppear {
-                    if selection == 2 {
+                    if selection == 3 {
                         //UnityManager.shared.show()
                     }
                 }
