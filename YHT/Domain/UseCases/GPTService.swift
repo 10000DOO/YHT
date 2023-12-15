@@ -58,4 +58,26 @@ class GPTService: GPTServiceProtocol {
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }
+    
+    func recommendReview(exerciseName: String, muscleName: String) -> AnyPublisher<String, ErrorResponse> {
+        return Future<String, ErrorResponse> { [weak self] promise in
+            self?.gptRepository.recommendReview(reviewRequest: ReviewRequest(exerciseName: exerciseName, muscleName: muscleName))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    var data = response.data
+                    data = data.replacingOccurrences(of: "정상적인 자극 부위:", with: "정상적인 자극 부위:\n")
+                    data = data.replacingOccurrences(of: "잘못된 자극 부위:", with: "\n잘못된 자극 부위:")
+                    data = data.replacingOccurrences(of: "잘못된 이유:", with: "\n잘못된 이유:")
+                    data = data.replacingOccurrences(of: "수정 방법:", with: "\n수정 방법:")
+                    data = data.replacingOccurrences(of: "결과는", with: "\n\n결과는")
+                    promise(.success(data))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
 }

@@ -191,6 +191,8 @@ struct DietView: View {
                             )
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal, 30)
+                        
+                        Text("")
                     }
                 })
             }
