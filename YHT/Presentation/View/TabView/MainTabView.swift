@@ -19,24 +19,32 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            DietView(dietViewModel: DietViewModel(gptService: GPTService(gptRepository: GPTRepository())))
-                .tabItem {
-                    Image(systemName: "fork.knife")
-                    Text("식단 추천")
-                }
-                .tag(2)
             
             Text("")
                 .tabItem {
                     Image(systemName: "figure.strengthtraining.traditional")
                     Text("AR")
                 }
-                .tag(3)
+                .tag(2)
                 .onAppear {
                     if selection == 3 {
                         //UnityManager.shared.show()
                     }
                 }
+            
+            DietView(dietViewModel: DietViewModel(gptService: GPTService(gptRepository: GPTRepository())))
+                .tabItem {
+                    Image(systemName: "fork.knife")
+                    Text("식단 추천")
+                }
+                .tag(3)
+            
+            ReviewView(reviewViewModel: ReviewViewModel(gptService: GPTService(gptRepository: GPTRepository())))
+                .tabItem {
+                    Image(systemName: "text.bubble")
+                    Text("운동 피드백")
+                }
+                .tag(4)
             
         }
         .font(.headline)

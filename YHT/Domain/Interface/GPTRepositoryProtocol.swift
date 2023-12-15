@@ -13,4 +13,6 @@ protocol GPTRepositoryProtocol {
     func recommendRoutine(routineRequest: RoutineRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
     
     func recommendDiet(dietRequest: DietRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func recommendReview(reviewRequest: ReviewRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
 }

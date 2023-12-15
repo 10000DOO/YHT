@@ -72,4 +72,35 @@ class GPTRepository: GPTRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func recommendReview(reviewRequest: ReviewRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/api/posture",
+                       method: .post,
+                       parameters: reviewRequest,
+                       encoder: JSONParameterEncoder.default,
+                       headers: ["Content-Type": "application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let reviewResult = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                        promise(.success(reviewResult))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
+                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500,
+                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }
