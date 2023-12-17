@@ -17,4 +17,6 @@ protocol MemberRepositoryProtocol {
     func findId(code: String) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
     
     func changePassword(changePasswordRequest: ChangePasswordRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
+    
+    func reIssueToken(accessToken: String?, refreshToken: String?) -> AnyPublisher<SignInResponse, ErrorResponse>
 }

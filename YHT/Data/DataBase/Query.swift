@@ -9,8 +9,10 @@ import Foundation
 import RealmSwift
 
 class Query {
-    
-    static func insertToken(realm: Realm, accessToken: TokenData, refreshToken: TokenData) -> ErrorResponse? {
+
+    static func insertToken(accessToken: TokenData, refreshToken: TokenData) -> ErrorResponse? {
+        let realm = RealmManager.shared.realm
+
         do {
             try realm.write {
                 if let existingToken = realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first {

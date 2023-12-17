@@ -19,13 +19,19 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
+            DiaryView(diaryViewModel: DiaryViewModel(diaryService: DiaryService(diaryRepository: DiaryRepository()), memberService: MemberService(memberRepository: MemberRepository())))
+                .tabItem {
+                    Image(systemName: "book.pages.fill")
+                    Text("다이어리")
+                }
+                .tag(2)
             
             Text("")
                 .tabItem {
                     Image(systemName: "figure.strengthtraining.traditional")
                     Text("AR")
                 }
-                .tag(2)
+                .tag(3)
                 .onAppear {
                     if selection == 3 {
                         //UnityManager.shared.show()
@@ -37,14 +43,14 @@ struct MainTabView: View {
                     Image(systemName: "fork.knife")
                     Text("식단 추천")
                 }
-                .tag(3)
+                .tag(4)
             
             ReviewView(reviewViewModel: ReviewViewModel(gptService: GPTService(gptRepository: GPTRepository())))
                 .tabItem {
                     Image(systemName: "text.bubble")
                     Text("운동 피드백")
                 }
-                .tag(4)
+                .tag(5)
             
         }
         .font(.headline)
