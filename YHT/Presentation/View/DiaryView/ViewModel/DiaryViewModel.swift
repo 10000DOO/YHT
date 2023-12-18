@@ -10,8 +10,11 @@ import Combine
 
 class DiaryViewModel: ObservableObject {
     
-    @Published var diaryList: CalendarDetails?
+    @Published var diaryList: [ExerciseCalendar] = []
     @Published var refreshTokenExpired = false
+    @Published var monthlyPercentage = 0.0
+    @Published var targetMonth = ""
+    @Published var currentDate = Date()
     var cancellables = Set<AnyCancellable>()
     private let diaryService: DiaryServiceProtocol
     private let memberService: MemberServiceProtocol
@@ -21,8 +24,8 @@ class DiaryViewModel: ObservableObject {
         self.memberService = memberService
     }
     
-    func getDiaryList() {
-        diaryService.getDiaryList(date: "2023-09")
+    func getDiaryList(date: String) {
+        diaryService.getDiaryList(date: date)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
@@ -34,14 +37,14 @@ class DiaryViewModel: ObservableObject {
                                     if error.error[0].error == ErrorMessage.expiredRefreshToken.rawValue {
                                         self?.refreshTokenExpired = true
                                     } else {
-                                        self?.getDiaryList()
+                                        self?.getDiaryList(date: date)
                                     }
                                 case .finished:
                                     break
                                 }
                             }, receiveValue: { result in
                                 if result {
-                                    self?.getDiaryList()
+                                    self?.getDiaryList(date: date)
                                 }
                             })
                             .store(in: &self!.cancellables)
@@ -51,7 +54,8 @@ class DiaryViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] response in
                 print(response)
-                self?.diaryList = response
+                self?.diaryList = response.calenders
+                self?.monthlyPercentage = Double(response.monthlyPercentage) / 100.0
             }.store(in: &cancellables)
     }
 }
