@@ -53,7 +53,6 @@ class DiaryViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { [weak self] response in
-                print(response)
                 self?.diaryList = response.calenders
                 self?.monthlyPercentage = Double(response.monthlyPercentage) / 100.0
             }.store(in: &cancellables)

@@ -52,7 +52,7 @@ struct DiaryView: View {
                     }
                 })
                 
-                CalendarGridView(currentDate: $diaryViewModel.currentDate)
+                CalendarGridView(currentDate: $diaryViewModel.currentDate, calendars: diaryViewModel.diaryList)
                 
                 Text("월간 달성률 \(Int(diaryViewModel.monthlyPercentage * 100))%")
                     .padding(.top, 20)
@@ -96,7 +96,6 @@ struct DiaryView: View {
 
 struct CustomProgressViewStyle: ProgressViewStyle {
     func makeBody(configuration: Configuration) -> some View {
-        // 기본 ProgressView의 설정을 가져와서 수정합니다.
         let progress = configuration.fractionCompleted ?? 0.0
         
         return GeometryReader { geometry in

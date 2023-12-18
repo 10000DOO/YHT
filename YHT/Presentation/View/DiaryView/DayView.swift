@@ -12,24 +12,30 @@ struct DayView: View {
     var isSelected: Bool
     var dailyPercentage: ExerciseCalendar?
     
+    init(date: Date, isSelected: Bool, dailyPercentage: ExerciseCalendar? = nil) {
+        self.date = date
+        self.isSelected = isSelected
+        self.dailyPercentage = dailyPercentage
+    }
+    
     var body: some View {
         VStack {
             Text("\(Calendar.current.component(.day, from: date))")
-                .padding(.horizontal, 8)
-                .padding(.top, 8)
+                .padding(8)
                 .background(isSelected ? Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)) : Color.clear)
                 .clipShape(Circle())
-                .foregroundColor(isSelected ? .white : .primary)
                 .font(.system(size: 18))
             
             if let percentage = dailyPercentage {
                 Text("\(percentage.dailyPercentage)%")
                     .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                     .font(.system(size: 15))
+                    .padding(.top, -8)
             } else {
                 Text("")
                     .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                     .font(.system(size: 15))
+                    .padding(.top, -8)
             }
         }
     }
