@@ -31,4 +31,20 @@ class DiaryService: DiaryServiceProtocol {
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }
+    
+    func getDiaryDetail(date: String) -> AnyPublisher<DiaryData, ErrorResponse> {
+        return Future<DiaryData, ErrorResponse> { [weak self] promise in
+            self?.diaryRepository.getDiaryDetail(date: date, accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(response.data))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
 }

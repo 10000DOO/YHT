@@ -39,4 +39,33 @@ class DiaryRepository: DiaryRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func getDiaryDetail(date: String, accessToken: String?) -> AnyPublisher<DiaryDetailResponse, ErrorResponse> {
+        return Future<DiaryDetailResponse, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/diary/detail",
+                       method: .get,
+                       parameters: ["date" : date],
+                       encoder: URLEncodedFormParameterEncoder.default,
+                       headers: ["Content-Type": "application/json", "Authorization" : accessToken!])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let diaryDetailResponse = try JSONDecoder().decode(DiaryDetailResponse.self, from: data)
+                        promise(.success(diaryDetailResponse))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

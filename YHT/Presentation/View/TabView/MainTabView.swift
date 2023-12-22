@@ -12,31 +12,31 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            RoutineView(routineViewModel: RoutineViewModel(gptService: GPTService(gptRepository: GPTRepository())))
-                .tabItem {
-                    Image(systemName: "dumbbell.fill")
-                    Text("루틴 추천")
-                }
-                .tag(1)
-            
             DiaryView(diaryViewModel: DiaryViewModel(diaryService: DiaryService(diaryRepository: DiaryRepository()), memberService: MemberService(memberRepository: MemberRepository())))
                 .tabItem {
                     Image(systemName: "book.pages.fill")
                     Text("다이어리")
                 }
-                .tag(2)
+                .tag(1)
             
             Text("")
                 .tabItem {
                     Image(systemName: "figure.strengthtraining.traditional")
                     Text("AR")
                 }
-                .tag(3)
+                .tag(2)
                 .onAppear {
-                    if selection == 3 {
+                    if selection == 2 {
                         //UnityManager.shared.show()
                     }
                 }
+            
+            RoutineView(routineViewModel: RoutineViewModel(gptService: GPTService(gptRepository: GPTRepository())))
+                .tabItem {
+                    Image(systemName: "dumbbell.fill")
+                    Text("루틴 추천")
+                }
+                .tag(3)
             
             DietView(dietViewModel: DietViewModel(gptService: GPTService(gptRepository: GPTRepository())))
                 .tabItem {

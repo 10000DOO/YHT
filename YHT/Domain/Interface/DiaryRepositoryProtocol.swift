@@ -10,4 +10,6 @@ import Combine
 
 protocol DiaryRepositoryProtocol {
     func getDiaryList(date: String, accessToken: String?) -> AnyPublisher<DiaryListResponse, ErrorResponse>
+    
+    func getDiaryDetail(date: String, accessToken: String?) -> AnyPublisher<DiaryDetailResponse, ErrorResponse>
 }

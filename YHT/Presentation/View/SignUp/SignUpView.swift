@@ -27,6 +27,7 @@ struct SignUpView: View {
             VStack (alignment: .center, spacing: 20){
                 HStack {
                     TextField("이메일", text: $signUpViewModel.emailText)
+                        .keyboardType(.emailAddress)
                         .frame(height: 50)
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 30)
@@ -137,7 +138,7 @@ struct SignUpView: View {
                 }.padding(.top, -20)
                     .frame(height: 10)
                 
-                TextField("비밀번호", text: $signUpViewModel.passwordText)
+                SecureField("비밀번호", text: $signUpViewModel.passwordText)
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
                     .padding(.leading, 30)
@@ -171,7 +172,7 @@ struct SignUpView: View {
                 }.padding(.top, -20)
                     .frame(height: 10)
                 
-                TextField("비밀번호 확인", text: $signUpViewModel.confirmPasswordText)
+                SecureField("비밀번호 확인", text: $signUpViewModel.confirmPasswordText)
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
                     .padding(.leading, 30)

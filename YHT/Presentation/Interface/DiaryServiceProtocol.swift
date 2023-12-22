@@ -11,4 +11,6 @@ import Combine
 protocol DiaryServiceProtocol {
     
     func getDiaryList(date: String) -> AnyPublisher<CalendarDetails, ErrorResponse>
+    
+    func getDiaryDetail(date: String) -> AnyPublisher<DiaryData, ErrorResponse>
 }
