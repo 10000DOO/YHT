@@ -17,6 +17,7 @@ class WriteDiaryViewModel: ObservableObject {
     @Published var exerciseReview = ""
     @Published var cardioTime = ""
     @Published var addExercise = false
+    @Published var addReview = false
     @Published var exerciseInfo: [ExerciseInfo] = []
     @Published var mediaList: [String] = []
     @Published var refreshTokenExpired = false

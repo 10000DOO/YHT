@@ -20,7 +20,7 @@ struct RadioButton: View {
                 Image(systemName: selectedOption == text ? "largecircle.fill.circle" : "circle")
                     .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
                 Text(text)
-                    .font(.system(size: 15))
+                    .font(.system(size: 20))
             }
         }
         .foregroundColor(.primary)

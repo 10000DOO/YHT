@@ -21,7 +21,7 @@ struct DayView: View {
     var body: some View {
         VStack {
             if let percentage = dailyPercentage {
-                NavigationLink(destination: DiaryDetailView()) {
+                NavigationLink(destination: WriteDiary(writeDiaryViewModel: WriteDiaryViewModel(diaryService: DiaryService(diaryRepository: DiaryRepository()), memberService: MemberService(memberRepository: MemberRepository())), date: date.toString())) {
                     DayContent(date: date, isSelected: isSelected, percentage: percentage.dailyPercentage)
                 }
             } else {

@@ -20,72 +20,73 @@ struct WriteDiary: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                HStack {
-                    Text("오늘의 운동")
-                        .font(.system(size: 35))
-                        .bold()
-                        .padding(.top, 20)
-                    
-                    Button(action: {
-                        writeDiaryViewModel.addExercise.toggle()
-                    }) {
-                        Image(systemName: "plus.circle")
-                            .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                            .scaleEffect(1.3)
-                    }
+            HStack {
+                Text("오늘의 운동")
+                    .font(.system(size: 35))
+                    .bold()
                     .padding(.top, 20)
-                    Spacer()
-                }
                 
-                if writeDiaryViewModel.exerciseInfo.count > 0 {
-                    VStack {
-                        ForEach(writeDiaryViewModel.exerciseInfo.indices, id: \.self) { index in
-                            if writeDiaryViewModel.exerciseInfo[index].cardio {
-                                HStack {
-                                    CheckboxView(isChecked: $writeDiaryViewModel.exerciseInfo[index].finished)
-                                    
-                                    Text("\(writeDiaryViewModel.exerciseInfo[index].exerciseName) - \(writeDiaryViewModel.exerciseInfo[index].cardioTime!)분")
-                                    
-                                    Button(action: {
-                                        writeDiaryViewModel.exerciseInfo.remove(at: index)
-                                    }) {
-                                        Image(systemName: "x.circle")
-                                            .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                                            .scaleEffect(1.2)
-                                    }
-                                    Spacer()
+                Button(action: {
+                    writeDiaryViewModel.addExercise.toggle()
+                }) {
+                    Image(systemName: "plus.circle")
+                        .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .scaleEffect(1.3)
+                }
+                .padding(.top, 20)
+                Spacer()
+            }
+            //작성된 운동
+            if writeDiaryViewModel.exerciseInfo.count > 0 {
+                VStack {
+                    ForEach(writeDiaryViewModel.exerciseInfo.indices, id: \.self) { index in
+                        if writeDiaryViewModel.exerciseInfo[index].cardio {
+                            HStack {
+                                CheckboxView(isChecked: $writeDiaryViewModel.exerciseInfo[index].finished)
+                                
+                                Text("\(writeDiaryViewModel.exerciseInfo[index].exerciseName) - \(writeDiaryViewModel.exerciseInfo[index].cardioTime!)분")
+                                
+                                Button(action: {
+                                    writeDiaryViewModel.exerciseInfo.remove(at: index)
+                                }) {
+                                    Image(systemName: "x.circle")
+                                        .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                        .scaleEffect(1.2)
                                 }
-                            } else {
-                                HStack {
-                                    CheckboxView(isChecked: $writeDiaryViewModel.exerciseInfo[index].finished)
-                                    
-                                    Text("\(writeDiaryViewModel.exerciseInfo[index].exerciseName) - \(writeDiaryViewModel.exerciseInfo[index].reps!)회 \(writeDiaryViewModel.exerciseInfo[index].exSetCount!)세트")
-                                    
-                                    Button(action: {
-                                        writeDiaryViewModel.exerciseInfo.remove(at: index)
-                                    }) {
-                                        Image(systemName: "x.circle")
-                                            .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
-                                            .scaleEffect(1.2)
-                                    }
-                                    Spacer()
+                                Spacer()
+                            }
+                        } else {
+                            HStack {
+                                CheckboxView(isChecked: $writeDiaryViewModel.exerciseInfo[index].finished)
+                                
+                                Text("\(writeDiaryViewModel.exerciseInfo[index].exerciseName) - \(writeDiaryViewModel.exerciseInfo[index].reps!)회 \(writeDiaryViewModel.exerciseInfo[index].exSetCount!)세트")
+                                
+                                Button(action: {
+                                    writeDiaryViewModel.exerciseInfo.remove(at: index)
+                                }) {
+                                    Image(systemName: "x.circle")
+                                        .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                                        .scaleEffect(1.2)
                                 }
+                                Spacer()
                             }
                         }
                     }
                 }
-                
+            }
+            //근력운동 추가
+            VStack(spacing: 20) {
                 if writeDiaryViewModel.addExercise {
                     HStack(spacing: 20, content: {
                         ForEach(options, id: \.self) { option in
                             RadioButton(selectedOption: $writeDiaryViewModel.exerciseType, text: option)
                         }
+                        Spacer()
                     })
                 }
                 
                 if writeDiaryViewModel.addExercise && writeDiaryViewModel.exerciseType == "근력 운동" {
-                    VStack {
+                    VStack(spacing: 20) {
                         HStack {
                             Text("운동 이름 : ")
                             
@@ -166,7 +167,8 @@ struct WriteDiary: View {
                         }
                     }
                 } else if writeDiaryViewModel.addExercise && writeDiaryViewModel.exerciseType == "유산소" {
-                    VStack {
+                    //유산소 추가
+                    VStack(spacing: 20) {
                         HStack {
                             Text("운동 이름 : ")
                             
@@ -226,11 +228,69 @@ struct WriteDiary: View {
                     }
                 }
             }
+            //운동리뷰
+            VStack {
+                HStack {
+                    Text("운동 리뷰")
+                        .font(.system(size: 35))
+                        .bold()
+                        .padding(.top, 20)
+                    
+                    Button(action: {
+                        writeDiaryViewModel.addReview.toggle()
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                            .scaleEffect(1.3)
+                    }
+                    .padding(.top, 20)
+                    Spacer()
+                }
+                .padding(.top, 200)
+                .padding(.bottom, 10)
+                
+                if writeDiaryViewModel.addReview {
+                    ZStack {
+                        TextEditor(text: $writeDiaryViewModel.exerciseReview)
+                            .padding(.all, 8)
+                            .frame(height: 150)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color(red: 0.38, green: 0.93, blue: 0.84), lineWidth: 2)
+                            )
+                        
+                        if writeDiaryViewModel.exerciseReview.isEmpty {
+                            HStack {
+                                Text("오늘의 운동은 어땠나요?")
+                                    .allowsHitTesting(false)
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 8)
+                                    .padding(.bottom, 110)
+                                
+                                Spacer()
+                            }
+                        }
+                    }
+                } else {
+                    if writeDiaryViewModel.exerciseReview != "" {
+                        Text(writeDiaryViewModel.exerciseReview)
+                            .lineLimit(nil)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(red: 0.38, green: 0.93, blue: 0.84), lineWidth: 2)
+                                    .padding(.horizontal, -10)
+                                    .padding(.vertical, -10)
+                            )
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 10)
+                    }
+                }
+            }
         }
         .onTapGesture {hideKeyboard()}
         .padding(.horizontal, 20)
         .onAppear {
-            //writeDiaryViewModel.getDiaryDetail(date: date)
+            writeDiaryViewModel.getDiaryDetail(date: date)
         }
     }
     

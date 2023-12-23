@@ -17,7 +17,7 @@ struct DiaryData: Codable {
     let exerciseDate: String
     let review: String
     let exerciseInfo: [ExerciseInfo]
-    let dateTime: DateTime
+    let createdAt: String
     let mediaList: [String]
 }
 
@@ -40,10 +40,3 @@ struct ExerciseInfo: Codable, Hashable {
         hasher.combine(finished)
     }
 }
-
-struct DateTime: Codable {
-    let createdAt: String
-    let canceledAt: String?
-    let updatedAt: String
-}
-
