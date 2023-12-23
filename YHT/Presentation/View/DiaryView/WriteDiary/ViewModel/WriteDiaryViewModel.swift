@@ -67,6 +67,7 @@ class WriteDiaryViewModel: ObservableObject {
                 self?.exerciseReview = response.review
                 self?.exerciseInfo = response.exerciseInfo
                 self?.mediaList = response.mediaList
+                self?.diaryId = response.diaryId
             }.store(in: &cancellables)
     }
     

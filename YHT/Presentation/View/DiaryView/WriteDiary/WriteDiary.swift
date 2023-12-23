@@ -297,6 +297,7 @@ struct WriteDiary: View {
                         .foregroundColor(textColorForCurrentColorScheme())
                         .cornerRadius(8)
                 }
+                .padding(.top, 20)
             }
             .onReceive(writeDiaryViewModel.$addOrModifySucceed) { success in
                 if success {
@@ -307,6 +308,7 @@ struct WriteDiary: View {
         .onTapGesture {hideKeyboard()}
         .padding(.horizontal, 20)
         .onAppear {
+            writeDiaryViewModel.addOrModifySucceed = false
             writeDiaryViewModel.exerciseDate = date
             writeDiaryViewModel.getDiaryDetail(date: date)
         }
