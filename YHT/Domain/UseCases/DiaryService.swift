@@ -47,4 +47,36 @@ class DiaryService: DiaryServiceProtocol {
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
     }
+    
+    func addDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String) -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.diaryRepository.addDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(true))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
+    
+    func modifyDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String, diaryId: Int) -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.diaryRepository.modifyDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent, diaryId: diaryId)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                } receiveValue: { response in
+                    promise(.success(true))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
 }

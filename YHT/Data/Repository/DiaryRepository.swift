@@ -68,4 +68,80 @@ class DiaryRepository: DiaryRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func addDiary(modifyDiaryRequest: ModifyDiaryRequest, accessToken: String?) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            AF.upload(
+                multipartFormData: { multipartFormData in
+                    do {
+                        let jsonData = try JSONEncoder().encode(modifyDiaryRequest)
+                        multipartFormData.append(Data(jsonData), withName: "writeDiaryDto", mimeType: "application/json")
+                    } catch {
+                        let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                        promise(.failure(defaultError))
+                        return
+                    }
+                },
+                to: ServerInfo.serverURL + "/diary/write",
+                method: .post,
+                headers: ["Content-Type": "multipart/form-data", "Authorization": accessToken!])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let addDiarySuccess = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                        promise(.success(addDiarySuccess))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func modifyDiary(modifyDiaryRequest: ModifyDiaryRequest, accessToken: String?, diaryId: Int) -> AnyPublisher<CommonSuccessRes, ErrorResponse> {
+        return Future<CommonSuccessRes, ErrorResponse> { promise in
+            AF.upload(
+                multipartFormData: { multipartFormData in
+                    do {
+                        let jsonData = try JSONEncoder().encode(modifyDiaryRequest)
+                        multipartFormData.append(Data(jsonData), withName: "writeDiaryDto", mimeType: "application/json")
+                    } catch {
+                        let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                        promise(.failure(defaultError))
+                        return
+                    }
+                },
+                to: ServerInfo.serverURL + "/diary/edit/\(diaryId)",
+                method: .patch,
+                headers: ["Content-Type": "multipart/form-data", "Authorization": accessToken!])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let modifyDiarySuccess = try JSONDecoder().decode(CommonSuccessRes.self, from: data)
+                        promise(.success(modifyDiarySuccess))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

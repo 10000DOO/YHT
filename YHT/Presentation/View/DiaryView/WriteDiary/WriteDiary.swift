@@ -11,6 +11,7 @@ struct WriteDiary: View {
     let options = ["근력 운동", "유산소"]
     var date: String
     @State private var colorScheme: ColorScheme = .light
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var writeDiaryViewModel: WriteDiaryViewModel
     
     init(writeDiaryViewModel: WriteDiaryViewModel, date: String) {
@@ -285,11 +286,28 @@ struct WriteDiary: View {
                             .padding(.horizontal, 10)
                     }
                 }
+                Button(action: {
+                    writeDiaryViewModel.addDiaryOrModifyDiary()
+                }) {
+                    Text("저장")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .foregroundColor(textColorForCurrentColorScheme())
+                        .cornerRadius(8)
+                }
+            }
+            .onReceive(writeDiaryViewModel.$addOrModifySucceed) { success in
+                if success {
+                    dismiss()
+                }
             }
         }
         .onTapGesture {hideKeyboard()}
         .padding(.horizontal, 20)
         .onAppear {
+            writeDiaryViewModel.exerciseDate = date
             writeDiaryViewModel.getDiaryDetail(date: date)
         }
     }

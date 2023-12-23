@@ -16,11 +16,15 @@ class WriteDiaryViewModel: ObservableObject {
     @Published var exerciseSetCount = ""
     @Published var exerciseReview = ""
     @Published var cardioTime = ""
+    @Published var diaryId = -1
+    @Published var exerciseDate = ""
     @Published var addExercise = false
+    @Published var isDiaryModified = false
     @Published var addReview = false
     @Published var exerciseInfo: [ExerciseInfo] = []
     @Published var mediaList: [String] = []
     @Published var refreshTokenExpired = false
+    @Published var addOrModifySucceed = false
     var cancellables = Set<AnyCancellable>()
     private let diaryService: DiaryServiceProtocol
     private let memberService: MemberServiceProtocol
@@ -59,10 +63,80 @@ class WriteDiaryViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { [weak self] response in
+                self?.isDiaryModified = true
                 self?.exerciseReview = response.review
                 self?.exerciseInfo = response.exerciseInfo
                 self?.mediaList = response.mediaList
             }.store(in: &cancellables)
+    }
+    
+    func addDiaryOrModifyDiary() {
+        if isDiaryModified {
+            diaryService.modifyDiary(exerciseInfos: exerciseInfo, review: exerciseReview, exerciseDate: exerciseDate, diaryId: diaryId)
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        if error.error[0].error == ErrorMessage.expiredToken.rawValue {
+                            self?.memberService.issueNewToken()
+                                .sink(receiveCompletion: { completion in
+                                    switch completion {
+                                    case .failure(let error):
+                                        if error.error[0].error == ErrorMessage.expiredRefreshToken.rawValue {
+                                            self?.refreshTokenExpired = true
+                                        } else {
+                                            self?.addDiaryOrModifyDiary()
+                                        }
+                                    case .finished:
+                                        break
+                                    }
+                                }, receiveValue: { result in
+                                    if result {
+                                        self?.addDiaryOrModifyDiary()
+                                    }
+                                })
+                                .store(in: &self!.cancellables)
+                        }
+                    case .finished:
+                        break
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.isDiaryModified = response
+                    self?.addOrModifySucceed = response
+                }.store(in: &cancellables)
+        } else {
+            diaryService.addDiary(exerciseInfos: exerciseInfo, review: exerciseReview, exerciseDate: exerciseDate)
+                .sink { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        if error.error[0].error == ErrorMessage.expiredToken.rawValue {
+                            self?.memberService.issueNewToken()
+                                .sink(receiveCompletion: { completion in
+                                    switch completion {
+                                    case .failure(let error):
+                                        if error.error[0].error == ErrorMessage.expiredRefreshToken.rawValue {
+                                            self?.refreshTokenExpired = true
+                                        } else {
+                                            self?.addDiaryOrModifyDiary()
+                                        }
+                                    case .finished:
+                                        break
+                                    }
+                                }, receiveValue: { result in
+                                    if result {
+                                        self?.addDiaryOrModifyDiary()
+                                    }
+                                })
+                                .store(in: &self!.cancellables)
+                        }
+                    case .finished:
+                        break
+                    }
+                } receiveValue: { [weak self] response in
+                    self?.isDiaryModified = response
+                    self?.addOrModifySucceed = response
+                }.store(in: &cancellables)
+        }
+        
     }
     
     func addWeightTraining() {
