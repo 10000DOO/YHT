@@ -83,10 +83,11 @@ struct SignInView: View {
                                 UserDefaults.standard.set(true, forKey: "isAlreadySignIn")
                             }
                         }
-                }.padding(.top, 60)
-                    .fullScreenCover(isPresented: $signInViewModel.signInSuccess) {
-                        MainTabView()
-                    }
+                }
+                .padding(.top, 60)
+                .fullScreenCover(isPresented: $signInViewModel.signInSuccess) {
+                    MainTabView()
+                }
                 
                 HStack(alignment: .center, spacing: 30) {
                     NavigationLink(destination: FindIdView(findIdViewModel: FindIdViewModel(emailService: EmailService(emailRepository: EmailRepository()), memberService: MemberService(memberRepository: MemberRepository())))) {

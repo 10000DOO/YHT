@@ -25,6 +25,7 @@ class WriteDiaryViewModel: ObservableObject {
     @Published var mediaList: [String] = []
     @Published var refreshTokenExpired = false
     @Published var addOrModifySucceed = false
+    @Published var deleteSucceed = false
     var cancellables = Set<AnyCancellable>()
     private let diaryService: DiaryServiceProtocol
     private let memberService: MemberServiceProtocol
@@ -137,7 +138,39 @@ class WriteDiaryViewModel: ObservableObject {
                     self?.addOrModifySucceed = response
                 }.store(in: &cancellables)
         }
-        
+    }
+    
+    func deleteButtonClicked() {
+        diaryService.deleteDiary(diaryId: diaryId)
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    if error.error[0].error == ErrorMessage.expiredToken.rawValue {
+                        self?.memberService.issueNewToken()
+                            .sink(receiveCompletion: { completion in
+                                switch completion {
+                                case .failure(let error):
+                                    if error.error[0].error == ErrorMessage.expiredRefreshToken.rawValue {
+                                        self?.refreshTokenExpired = true
+                                    } else {
+                                        self?.deleteButtonClicked()
+                                    }
+                                case .finished:
+                                    break
+                                }
+                            }, receiveValue: { result in
+                                if result {
+                                    self?.deleteButtonClicked()
+                                }
+                            })
+                            .store(in: &self!.cancellables)
+                    }
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] response in
+                self?.deleteSucceed = response
+            }.store(in: &cancellables)
     }
     
     func addWeightTraining() {

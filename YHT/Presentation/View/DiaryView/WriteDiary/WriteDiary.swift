@@ -11,6 +11,7 @@ struct WriteDiary: View {
     let options = ["근력 운동", "유산소"]
     var date: String
     @State private var colorScheme: ColorScheme = .light
+    @State private var deleteDiary = false
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var writeDiaryViewModel: WriteDiaryViewModel
     
@@ -36,7 +37,28 @@ struct WriteDiary: View {
                 }
                 .padding(.top, 20)
                 Spacer()
+                
+                Button(action: {
+                    deleteDiary.toggle()
+                }) {
+                    Image(systemName: "trash")
+                        .foregroundColor(Color(#colorLiteral(red: 0.38, green: 0.93, blue: 0.84, alpha: 1)))
+                        .scaleEffect(1.3)
+                }
+                .alert("삭제하시겠습니까?", isPresented: $deleteDiary) {
+                    Button("아니오", role: .cancel){}
+                    Button("예", role: .destructive) {
+                        writeDiaryViewModel.deleteButtonClicked()
+                    }
+                }
+                .onReceive(writeDiaryViewModel.$deleteSucceed) { success in
+                    if success {
+                        dismiss()
+                    }
+                }
+                .padding(.top, 20)
             }
+            
             //작성된 운동
             if writeDiaryViewModel.exerciseInfo.count > 0 {
                 VStack {
@@ -298,19 +320,29 @@ struct WriteDiary: View {
                         .cornerRadius(8)
                 }
                 .padding(.top, 20)
-            }
-            .onReceive(writeDiaryViewModel.$addOrModifySucceed) { success in
-                if success {
-                    dismiss()
+                .onReceive(writeDiaryViewModel.$addOrModifySucceed) { success in
+                    if success {
+                        dismiss()
+                    }
                 }
             }
+        }
+        .fullScreenCover(isPresented: $writeDiaryViewModel.refreshTokenExpired) {
+            SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
         }
         .onTapGesture {hideKeyboard()}
         .padding(.horizontal, 20)
         .onAppear {
-            writeDiaryViewModel.addOrModifySucceed = false
             writeDiaryViewModel.exerciseDate = date
             writeDiaryViewModel.getDiaryDetail(date: date)
+        }
+        .onDisappear {
+            writeDiaryViewModel.addExercise = false
+            writeDiaryViewModel.isDiaryModified = false
+            writeDiaryViewModel.addReview = false
+            writeDiaryViewModel.refreshTokenExpired = false
+            writeDiaryViewModel.addOrModifySucceed = false
+            writeDiaryViewModel.deleteSucceed = false
         }
     }
     

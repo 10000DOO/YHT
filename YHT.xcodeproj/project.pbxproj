@@ -36,6 +36,7 @@
 		695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */; };
 		695F94E22B27760400B33E7B /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E12B27760400B33E7B /* GPTService.swift */; };
 		695F94E42B2776D400B33E7B /* GPTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */; };
+		69652C292B37D48D00837636 /* DiaryDeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */; };
 		6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BC2B280C9100FA7CA0 /* DietView.swift */; };
 		6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */; };
 		6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8C12B28175900FA7CA0 /* DietRequest.swift */; };
@@ -142,6 +143,7 @@
 		695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepositoryProtocol.swift; sourceTree = "<group>"; };
 		695F94E12B27760400B33E7B /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTServiceProtocol.swift; sourceTree = "<group>"; };
+		69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDeleteResponse.swift; sourceTree = "<group>"; };
 		6978E8BC2B280C9100FA7CA0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		6978E8C12B28175900FA7CA0 /* DietRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRequest.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				697B0F132B2EBC250067382F /* DiaryListResponse.swift */,
 				6999FCAE2B3574EF00DB5D59 /* DiaryDetailResponse.swift */,
+				69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				697B0F102B2EBB6D0067382F /* DiaryRepositoryProtocol.swift in Sources */,
 				695F94D32B26E87E00B33E7B /* RoutineView.swift in Sources */,
 				697B0F0E2B2EBB420067382F /* DiaryRepository.swift in Sources */,
+				69652C292B37D48D00837636 /* DiaryDeleteResponse.swift in Sources */,
 				695F94DB2B27743E00B33E7B /* GPTRepository.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
 				695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */,

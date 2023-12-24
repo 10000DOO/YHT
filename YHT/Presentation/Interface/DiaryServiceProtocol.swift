@@ -17,4 +17,6 @@ protocol DiaryServiceProtocol {
     func addDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String) -> AnyPublisher<Bool, ErrorResponse>
     
     func modifyDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String, diaryId: Int) -> AnyPublisher<Bool, ErrorResponse>
+    
+    func deleteDiary(diaryId: Int) -> AnyPublisher<Bool, ErrorResponse>
 }

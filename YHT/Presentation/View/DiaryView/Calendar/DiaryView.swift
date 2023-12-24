@@ -67,6 +67,9 @@ struct DiaryView: View {
                     Spacer()
                 }
             }
+            .fullScreenCover(isPresented: $diaryViewModel.refreshTokenExpired) {
+                SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
+            }
             .onAppear {
                 diaryViewModel.getDiaryList(date: getCurrentMonth(date: diaryViewModel.currentDate))
             }
