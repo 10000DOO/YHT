@@ -27,7 +27,7 @@ struct MainTabView: View {
                 .tag(2)
                 .onAppear {
                     if selection == 2 {
-                        //UnityManager.shared.show()
+                        UnityManager.shared.show()
                     }
                 }
             
