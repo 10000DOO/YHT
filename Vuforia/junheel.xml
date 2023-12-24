@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QCARConfig>
+    <Tracking>
+        <ModelTarget name="junheel" trackingMode="car" motionHint="adaptive" upVector="0.0 0.0 -1.0" optimizeTrackingFor="default"> </ModelTarget>
+        <ModelTarget name="STLE" trackingMode="car" motionHint="adaptive" upVector="0.0 1.0 0.0" optimizeTrackingFor="default"> </ModelTarget>
+        <ModelTarget name="latpulldown_2m" trackingMode="car" motionHint="adaptive" upVector="0.0 0.0 1.0" optimizeTrackingFor="default"> </ModelTarget>
+    </Tracking>
+    <Assembly name="junheel" assemblyId="0b2bb2236ff1444e957d0cf7254399d4">
+        <Part name="junheel" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint name="(none)" trained="yes"></EntryPoint>
+    </Assembly>
+    <Assembly name="STLE" assemblyId="a2e34a12abc044cdaa6f4707f36247d0">
+        <Part name="STLE" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint name="(none)" trained="yes"></EntryPoint>
+    </Assembly>
+    <Assembly name="latpulldown_2m" assemblyId="83b891792e874d109e3364f632b08e8d">
+        <Part name="latpulldown_2m" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint name="(none)" trained="yes"></EntryPoint>
+    </Assembly>
+    <ModelTargetDatabase name="junheel"> </ModelTargetDatabase>
+</QCARConfig>
