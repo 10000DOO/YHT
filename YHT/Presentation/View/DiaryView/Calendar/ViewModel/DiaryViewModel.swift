@@ -12,6 +12,7 @@ class DiaryViewModel: ObservableObject {
     
     @Published var diaryList: [ExerciseCalendar] = []
     @Published var refreshTokenExpired = false
+    @Published var getDiaryFail = false
     @Published var monthlyPercentage = 0.0
     @Published var targetMonth = ""
     @Published var currentDate = Date()
@@ -48,6 +49,8 @@ class DiaryViewModel: ObservableObject {
                                 }
                             })
                             .store(in: &self!.cancellables)
+                    } else {
+                        self?.getDiaryFail = true
                     }
                 case .finished:
                     break

@@ -320,6 +320,9 @@ struct WriteDiary: View {
                         .cornerRadius(8)
                 }
                 .padding(.top, 20)
+                .alert("작업에 실패했습니다.", isPresented: $writeDiaryViewModel.addOrModifyFail) {
+                    Button("확인", role: .none){}
+                }
                 .onReceive(writeDiaryViewModel.$addOrModifySucceed) { success in
                     if success {
                         dismiss()

@@ -25,6 +25,7 @@ class WriteDiaryViewModel: ObservableObject {
     @Published var mediaList: [String] = []
     @Published var refreshTokenExpired = false
     @Published var addOrModifySucceed = false
+    @Published var addOrModifyFail = false
     @Published var deleteSucceed = false
     var cancellables = Set<AnyCancellable>()
     private let diaryService: DiaryServiceProtocol
@@ -97,6 +98,8 @@ class WriteDiaryViewModel: ObservableObject {
                                     }
                                 })
                                 .store(in: &self!.cancellables)
+                        } else {
+                            self?.addOrModifyFail = true
                         }
                     case .finished:
                         break
@@ -129,6 +132,8 @@ class WriteDiaryViewModel: ObservableObject {
                                     }
                                 })
                                 .store(in: &self!.cancellables)
+                        } else {
+                            self?.addOrModifyFail = true
                         }
                     case .finished:
                         break
