@@ -41,7 +41,6 @@
 //        }
 //
 //        guard let ufw = loadUnityFramework() else {
-//            print("ERROR: Was not able to load Unity")
 //            return unloadWindow()
 //        }
 //

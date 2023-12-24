@@ -7,13 +7,11 @@
 
 import Foundation
 import Combine
-import RealmSwift
 
 class MemberService: MemberServiceProtocol {
     
     private let memberRepository: MemberRepositoryProtocol
     var cancellables = Set<AnyCancellable>()
-    let realm = try! Realm()
     
     init(memberRepository: MemberRepositoryProtocol) {
         self.memberRepository = memberRepository
@@ -57,17 +55,17 @@ class MemberService: MemberServiceProtocol {
                     case .failure(let error):
                         promise(.failure(error))
                     }
-                } receiveValue: { [weak self] response in
+                } receiveValue: { response in
                     UserDefaults.standard.set(response.data.username, forKey: "username")
                     
                     let accessToken = TokenData()
                     let refreshToken = TokenData()
                     accessToken.tokenName = "accessToken"
-                    accessToken.tokenContent = response.data.accessToken
+                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
                     refreshToken.tokenName = "refreshToken"
-                    refreshToken.tokenContent = response.data.refreshToken
+                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
                     
-                    let result = Query.insertToken(realm: self!.realm, accessToken: accessToken, refreshToken: refreshToken)
+                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
                     if result != nil {
                         promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
                     }
@@ -103,6 +101,37 @@ class MemberService: MemberServiceProtocol {
                         promise(.failure(error))
                     }
                 } receiveValue: { response in
+                    promise(.success(true))
+                }.store(in: &self!.cancellables)
+        }.eraseToAnyPublisher()
+    }
+    
+    func issueNewToken() -> AnyPublisher<Bool, ErrorResponse> {
+        return Future<Bool, ErrorResponse> { [weak self] promise in
+            self?.memberRepository.reIssueToken(accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent, refreshToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "refreshToken").first?.tokenContent)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        if error.error[0].error == ErrorMessage.expiredRefreshToken.rawValue {
+                            promise(.failure(error))
+                        }
+                    }
+                } receiveValue: { response in
+                    UserDefaults.standard.set(response.data.username, forKey: "username")
+                    
+                    let accessToken = TokenData()
+                    let refreshToken = TokenData()
+                    accessToken.tokenName = "accessToken"
+                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
+                    refreshToken.tokenName = "refreshToken"
+                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
+                    
+                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
+                    if result != nil {
+                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
+                    }
                     promise(.success(true))
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()

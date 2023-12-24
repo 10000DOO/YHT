@@ -25,6 +25,8 @@
 		6915E83E2B24C5060031EBEC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83D2B24C5060031EBEC /* Realm */; };
 		6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6915E83F2B24C5060031EBEC /* RealmSwift */; };
 		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
+		69182DB32B304E3C006DC5F1 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69182DB22B304E3C006DC5F1 /* DayView.swift */; };
+		69182DB52B304E5E006DC5F1 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69182DB42B304E5E006DC5F1 /* CalendarGridView.swift */; };
 		695EC66F2B2AFEAF00A26CD7 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EC66E2B2AFEAF00A26CD7 /* ReviewView.swift */; };
 		695F94D32B26E87E00B33E7B /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94D22B26E87E00B33E7B /* RoutineView.swift */; };
 		695F94D62B26FB2000B33E7B /* RoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94D52B26FB2000B33E7B /* RoutineViewModel.swift */; };
@@ -34,15 +36,25 @@
 		695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */; };
 		695F94E22B27760400B33E7B /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E12B27760400B33E7B /* GPTService.swift */; };
 		695F94E42B2776D400B33E7B /* GPTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */; };
+		69652C292B37D48D00837636 /* DiaryDeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */; };
 		6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BC2B280C9100FA7CA0 /* DietView.swift */; };
 		6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */; };
 		6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8C12B28175900FA7CA0 /* DietRequest.swift */; };
+		697B0F0E2B2EBB420067382F /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F0D2B2EBB420067382F /* DiaryRepository.swift */; };
+		697B0F102B2EBB6D0067382F /* DiaryRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F0F2B2EBB6D0067382F /* DiaryRepositoryProtocol.swift */; };
+		697B0F142B2EBC250067382F /* DiaryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F132B2EBC250067382F /* DiaryListResponse.swift */; };
+		697B0F162B2ED2C20067382F /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F152B2ED2C20067382F /* DiaryService.swift */; };
+		697B0F182B2EDC480067382F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F172B2EDC480067382F /* RealmManager.swift */; };
+		697B0F1D2B2EED4A0067382F /* DiaryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F1C2B2EED4A0067382F /* DiaryServiceProtocol.swift */; };
 		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
 		698ACCBE2B2C483C001F11F3 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698ACCBD2B2C483C001F11F3 /* ReviewViewModel.swift */; };
 		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
 		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
 		699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E92B25768A00E411E3 /* FindPwView.swift */; };
 		699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872EB2B25769900E411E3 /* FindPwViewModel.swift */; };
+		6999FCAB2B341C2C00DB5D59 /* WriteDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCAA2B341C2C00DB5D59 /* WriteDiaryViewModel.swift */; };
+		6999FCAF2B3574EF00DB5D59 /* DiaryDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCAE2B3574EF00DB5D59 /* DiaryDetailResponse.swift */; };
+		6999FCB12B359BD600DB5D59 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCB02B359BD600DB5D59 /* CheckboxView.swift */; };
 		69AD83A02B10942300448107 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD839F2B10942300448107 /* ViewExtension.swift */; };
 		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
 		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
@@ -65,7 +77,11 @@
 		69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */; };
 		69EF49792B07B5D7003DF6A9 /* Vuforia in Resources */ = {isa = PBXBuildFile; fileRef = 69EF49782B07B5D7003DF6A9 /* Vuforia */; };
+		69EFE1F92B310B8B008C4F8E /* WriteDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EFE1F82B310B8B008C4F8E /* WriteDiary.swift */; };
+		69F2E7192B36FCE000EA0E30 /* ModifyDiaryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2E7182B36FCE000EA0E30 /* ModifyDiaryRequest.swift */; };
 		69FB699F2B26E0640025D517 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB699E2B26E0640025D517 /* MainTabView.swift */; };
+		69FF698E2B2F368E000C6CFB /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF698D2B2F368E000C6CFB /* DiaryView.swift */; };
+		69FF69902B2F3756000C6CFB /* DiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FF698F2B2F3756000C6CFB /* DiaryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +132,8 @@
 		6915E8352B24B9670031EBEC /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		6915E83B2B24C4950031EBEC /* TokenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenData.swift; sourceTree = "<group>"; };
 		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		69182DB22B304E3C006DC5F1 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		69182DB42B304E5E006DC5F1 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		695EC66E2B2AFEAF00A26CD7 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		695F94D22B26E87E00B33E7B /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		695F94D52B26FB2000B33E7B /* RoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewModel.swift; sourceTree = "<group>"; };
@@ -125,15 +143,25 @@
 		695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepositoryProtocol.swift; sourceTree = "<group>"; };
 		695F94E12B27760400B33E7B /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTServiceProtocol.swift; sourceTree = "<group>"; };
+		69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDeleteResponse.swift; sourceTree = "<group>"; };
 		6978E8BC2B280C9100FA7CA0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		6978E8C12B28175900FA7CA0 /* DietRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRequest.swift; sourceTree = "<group>"; };
+		697B0F0D2B2EBB420067382F /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
+		697B0F0F2B2EBB6D0067382F /* DiaryRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepositoryProtocol.swift; sourceTree = "<group>"; };
+		697B0F132B2EBC250067382F /* DiaryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListResponse.swift; sourceTree = "<group>"; };
+		697B0F152B2ED2C20067382F /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
+		697B0F172B2EDC480067382F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		697B0F1C2B2EED4A0067382F /* DiaryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryServiceProtocol.swift; sourceTree = "<group>"; };
 		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
 		698ACCBD2B2C483C001F11F3 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
 		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		699872E92B25768A00E411E3 /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
 		699872EB2B25769900E411E3 /* FindPwViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewModel.swift; sourceTree = "<group>"; };
+		6999FCAA2B341C2C00DB5D59 /* WriteDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewModel.swift; sourceTree = "<group>"; };
+		6999FCAE2B3574EF00DB5D59 /* DiaryDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailResponse.swift; sourceTree = "<group>"; };
+		6999FCB02B359BD600DB5D59 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		69AD839F2B10942300448107 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		69B3629F2B07B37400714B3B /* YHT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B362A22B07B37400714B3B /* YHTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHTApp.swift; sourceTree = "<group>"; };
@@ -160,7 +188,11 @@
 		69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VuforiaEngine.framework; path = ../unity/Frameworks/com.ptc.vuforia.engine/Vuforia/Plugins/iOS/VuforiaEngine.framework; sourceTree = "<group>"; };
 		69EF49762B07B588003DF6A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		69EF49782B07B5D7003DF6A9 /* Vuforia */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Vuforia; sourceTree = "<group>"; };
+		69EFE1F82B310B8B008C4F8E /* WriteDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiary.swift; sourceTree = "<group>"; };
+		69F2E7182B36FCE000EA0E30 /* ModifyDiaryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyDiaryRequest.swift; sourceTree = "<group>"; };
 		69FB699E2B26E0640025D517 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		69FF698D2B2F368E000C6CFB /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		69FF698F2B2F3756000C6CFB /* DiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				695F94D82B27064100B33E7B /* RadioButton.swift */,
+				6999FCB02B359BD600DB5D59 /* CheckboxView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -307,6 +340,33 @@
 			isa = PBXGroup;
 			children = (
 				6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		697B0F062B2E93900067382F /* DiaryView */ = {
+			isa = PBXGroup;
+			children = (
+				6999FCAD2B348B6800DB5D59 /* WriteDiary */,
+				69EFE1F62B310B3E008C4F8E /* Calendar */,
+			);
+			path = DiaryView;
+			sourceTree = "<group>";
+		};
+		697B0F122B2EBC160067382F /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				697B0F132B2EBC250067382F /* DiaryListResponse.swift */,
+				6999FCAE2B3574EF00DB5D59 /* DiaryDetailResponse.swift */,
+				69652C282B37D48D00837636 /* DiaryDeleteResponse.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		697B0F192B2EEAA40067382F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69FF698F2B2F3756000C6CFB /* DiaryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +404,23 @@
 				699872EB2B25769900E411E3 /* FindPwViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6999FCA92B341C0E00DB5D59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6999FCAA2B341C2C00DB5D59 /* WriteDiaryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6999FCAD2B348B6800DB5D59 /* WriteDiary */ = {
+			isa = PBXGroup;
+			children = (
+				6999FCA92B341C0E00DB5D59 /* ViewModel */,
+				69EFE1F82B310B8B008C4F8E /* WriteDiary.swift */,
+			);
+			path = WriteDiary;
 			sourceTree = "<group>";
 		};
 		69B362962B07B37400714B3B = {
@@ -423,6 +500,7 @@
 				69B362CC2B07B38C00714B3B /* UnityManager.swift */,
 				69AD839F2B10942300448107 /* ViewExtension.swift */,
 				69046E112B21BDA200764D1A /* ErrorMessage.swift */,
+				697B0F172B2EDC480067382F /* RealmManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -443,6 +521,7 @@
 				69046E132B22094D00764D1A /* EmailService.swift */,
 				69E232482B244A3D004C4D0D /* MemberService.swift */,
 				695F94E12B27760400B33E7B /* GPTService.swift */,
+				697B0F152B2ED2C20067382F /* DiaryService.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -450,6 +529,7 @@
 		69C9A1B22B0F021D0056C37A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				697B0F122B2EBC160067382F /* Diary */,
 				6915E8372B24B9700031EBEC /* SignIn */,
 				69046E1F2B220C9F00764D1A /* Email */,
 				69046E172B22099F00764D1A /* ErrorResponse.swift */,
@@ -464,6 +544,7 @@
 				69046E1B2B220C3900764D1A /* EmailRepositoryProtocol.swift */,
 				69E2324E2B246C80004C4D0D /* MemberRepositoryProtocol.swift */,
 				695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */,
+				697B0F0F2B2EBB6D0067382F /* DiaryRepositoryProtocol.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -485,6 +566,7 @@
 				69046E152B22096E00764D1A /* EmailServiceProtocol.swift */,
 				69E2324A2B244A57004C4D0D /* MemberServiceProtocol.swift */,
 				695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */,
+				697B0F1C2B2EED4A0067382F /* DiaryServiceProtocol.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -492,6 +574,7 @@
 		69C9A1B62B0F02780056C37A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				69F2E7172B36FCC900EA0E30 /* Diary */,
 				695F94DC2B27749200B33E7B /* GPT */,
 				6915E8382B24B9830031EBEC /* Email */,
 				6915E8322B24B7950031EBEC /* MemberDTO */,
@@ -514,6 +597,7 @@
 				69046E192B220C2B00764D1A /* EmailRepository.swift */,
 				69E2324C2B246C59004C4D0D /* MemberRepository.swift */,
 				695F94DA2B27743E00B33E7B /* GPTRepository.swift */,
+				697B0F0D2B2EBB420067382F /* DiaryRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -521,6 +605,7 @@
 		69C9A1BA2B0F02D10056C37A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				697B0F062B2E93900067382F /* DiaryView */,
 				695EC66D2B2AFE9200A26CD7 /* Review */,
 				6978E8BB2B280C7300FA7CA0 /* Diet */,
 				695F94D72B27063500B33E7B /* Component */,
@@ -575,6 +660,25 @@
 				69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69EFE1F62B310B3E008C4F8E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				697B0F192B2EEAA40067382F /* ViewModel */,
+				69FF698D2B2F368E000C6CFB /* DiaryView.swift */,
+				69182DB22B304E3C006DC5F1 /* DayView.swift */,
+				69182DB42B304E5E006DC5F1 /* CalendarGridView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		69F2E7172B36FCC900EA0E30 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				69F2E7182B36FCE000EA0E30 /* ModifyDiaryRequest.swift */,
+			);
+			path = Diary;
 			sourceTree = "<group>";
 		};
 		69F5AFE42B0DB29700AB8145 /* Splash */ = {
@@ -728,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */,
+				69EFE1F92B310B8B008C4F8E /* WriteDiary.swift in Sources */,
 				69B362A52B07B37400714B3B /* ContentView.swift in Sources */,
 				69B362A32B07B37400714B3B /* YHTApp.swift in Sources */,
 				69046E262B22117300764D1A /* SendEmailRequest.swift in Sources */,
@@ -744,32 +849,47 @@
 				695F94D62B26FB2000B33E7B /* RoutineViewModel.swift in Sources */,
 				6915E8442B24D3330031EBEC /* Query.swift in Sources */,
 				698ACCBE2B2C483C001F11F3 /* ReviewViewModel.swift in Sources */,
+				697B0F102B2EBB6D0067382F /* DiaryRepositoryProtocol.swift in Sources */,
 				695F94D32B26E87E00B33E7B /* RoutineView.swift in Sources */,
+				697B0F0E2B2EBB420067382F /* DiaryRepository.swift in Sources */,
+				69652C292B37D48D00837636 /* DiaryDeleteResponse.swift in Sources */,
 				695F94DB2B27743E00B33E7B /* GPTRepository.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
 				695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */,
+				69182DB52B304E5E006DC5F1 /* CalendarGridView.swift in Sources */,
 				6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */,
+				697B0F1D2B2EED4A0067382F /* DiaryServiceProtocol.swift in Sources */,
 				699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */,
 				6915E83C2B24C4950031EBEC /* TokenData.swift in Sources */,
 				699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */,
 				69046E1E2B220C9200764D1A /* CommonSuccessRes.swift in Sources */,
+				69FF698E2B2F368E000C6CFB /* DiaryView.swift in Sources */,
+				69FF69902B2F3756000C6CFB /* DiaryViewModel.swift in Sources */,
 				69C9A1BE2B0F03040056C37A /* ServerInfo.swift in Sources */,
 				69CEB8482B2C8AFC00074CDE /* ReviewRequest.swift in Sources */,
 				69AD83A02B10942300448107 /* ViewExtension.swift in Sources */,
 				69E2324D2B246C59004C4D0D /* MemberRepository.swift in Sources */,
 				6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */,
+				697B0F142B2EBC250067382F /* DiaryListResponse.swift in Sources */,
 				69B362CD2B07B38C00714B3B /* UnityManager.swift in Sources */,
 				69C9A1C42B0F29CA0056C37A /* SignUpView.swift in Sources */,
 				69E232492B244A3D004C4D0D /* MemberService.swift in Sources */,
+				6999FCB12B359BD600DB5D59 /* CheckboxView.swift in Sources */,
 				69FB699F2B26E0640025D517 /* MainTabView.swift in Sources */,
 				695F94E42B2776D400B33E7B /* GPTServiceProtocol.swift in Sources */,
+				697B0F162B2ED2C20067382F /* DiaryService.swift in Sources */,
+				697B0F182B2EDC480067382F /* RealmManager.swift in Sources */,
 				69046E122B21BDA200764D1A /* ErrorMessage.swift in Sources */,
 				69046E142B22094D00764D1A /* EmailService.swift in Sources */,
 				695F94D92B27064100B33E7B /* RadioButton.swift in Sources */,
 				6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */,
 				69046E162B22096E00764D1A /* EmailServiceProtocol.swift in Sources */,
+				6999FCAB2B341C2C00DB5D59 /* WriteDiaryViewModel.swift in Sources */,
+				69182DB32B304E3C006DC5F1 /* DayView.swift in Sources */,
 				699872EC2B25769900E411E3 /* FindPwViewModel.swift in Sources */,
+				69F2E7192B36FCE000EA0E30 /* ModifyDiaryRequest.swift in Sources */,
 				69E2324F2B246C80004C4D0D /* MemberRepositoryProtocol.swift in Sources */,
+				6999FCAF2B3574EF00DB5D59 /* DiaryDetailResponse.swift in Sources */,
 				69E232512B247F39004C4D0D /* SignUpRequest.swift in Sources */,
 				69E2324B2B244A57004C4D0D /* MemberServiceProtocol.swift in Sources */,
 				699872E32B2571F300E411E3 /* FindIdView.swift in Sources */,

@@ -28,14 +28,12 @@ class GPTRepository: GPTRepositoryProtocol {
                         if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                             promise(.failure(errorResponse))
                         } else {
-                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
-                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                             promise(.failure(defaultError))
                         }
                     }
                 case .failure(let error):
-                    let customError = ErrorResponse(status: error.responseCode ?? 500,
-                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                     promise(.failure(customError))
                 }
             }
@@ -59,14 +57,12 @@ class GPTRepository: GPTRepositoryProtocol {
                         if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                             promise(.failure(errorResponse))
                         } else {
-                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
-                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                             promise(.failure(defaultError))
                         }
                     }
                 case .failure(let error):
-                    let customError = ErrorResponse(status: error.responseCode ?? 500,
-                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                     promise(.failure(customError))
                 }
             }
@@ -90,14 +86,12 @@ class GPTRepository: GPTRepositoryProtocol {
                         if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
                             promise(.failure(errorResponse))
                         } else {
-                            let defaultError = ErrorResponse(status: response.response?.statusCode ?? 500,
-                                                             error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                             promise(.failure(defaultError))
                         }
                     }
                 case .failure(let error):
-                    let customError = ErrorResponse(status: error.responseCode ?? 500,
-                                                    error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
                     promise(.failure(customError))
                 }
             }

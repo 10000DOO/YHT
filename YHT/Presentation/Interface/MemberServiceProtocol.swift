@@ -21,4 +21,6 @@ protocol MemberServiceProtocol {
     func findId(code: String) -> AnyPublisher<String, ErrorResponse>
     
     func changePassowrd(password: String, email: String) -> AnyPublisher<Bool, ErrorResponse>
+    
+    func issueNewToken() -> AnyPublisher<Bool, ErrorResponse>
 }
