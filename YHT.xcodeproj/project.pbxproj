@@ -27,6 +27,8 @@
 		6915E8442B24D3330031EBEC /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915E8432B24D3330031EBEC /* Query.swift */; };
 		69182DB32B304E3C006DC5F1 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69182DB22B304E3C006DC5F1 /* DayView.swift */; };
 		69182DB52B304E5E006DC5F1 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69182DB42B304E5E006DC5F1 /* CalendarGridView.swift */; };
+		69318D3F2B38326000E22D54 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69318D3E2B38326000E22D54 /* UnityFramework.framework */; };
+		69318D402B38326000E22D54 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69318D3E2B38326000E22D54 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		695EC66F2B2AFEAF00A26CD7 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EC66E2B2AFEAF00A26CD7 /* ReviewView.swift */; };
 		695F94D32B26E87E00B33E7B /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94D22B26E87E00B33E7B /* RoutineView.swift */; };
 		695F94D62B26FB2000B33E7B /* RoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94D52B26FB2000B33E7B /* RoutineViewModel.swift */; };
@@ -55,8 +57,6 @@
 		6999FCAB2B341C2C00DB5D59 /* WriteDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCAA2B341C2C00DB5D59 /* WriteDiaryViewModel.swift */; };
 		6999FCAF2B3574EF00DB5D59 /* DiaryDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCAE2B3574EF00DB5D59 /* DiaryDetailResponse.swift */; };
 		6999FCB12B359BD600DB5D59 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999FCB02B359BD600DB5D59 /* CheckboxView.swift */; };
-		69A20CCE2B37F3BF00FECAD3 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A20CCD2B37F3BF00FECAD3 /* UnityFramework.framework */; };
-		69A20CCF2B37F3BF00FECAD3 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A20CCD2B37F3BF00FECAD3 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69AD83A02B10942300448107 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AD839F2B10942300448107 /* ViewExtension.swift */; };
 		69B362A32B07B37400714B3B /* YHTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A22B07B37400714B3B /* YHTApp.swift */; };
 		69B362A52B07B37400714B3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B362A42B07B37400714B3B /* ContentView.swift */; };
@@ -112,7 +112,7 @@
 			files = (
 				69EF49752B07B493003DF6A9 /* VuforiaEngine.framework in Embed Frameworks */,
 				69EF49732B07B493003DF6A9 /* UnityDriver.framework in Embed Frameworks */,
-				69A20CCF2B37F3BF00FECAD3 /* UnityFramework.framework in Embed Frameworks */,
+				69318D402B38326000E22D54 /* UnityFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +137,7 @@
 		6915E8432B24D3330031EBEC /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		69182DB22B304E3C006DC5F1 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		69182DB42B304E5E006DC5F1 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
+		69318D3E2B38326000E22D54 /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		695EC66E2B2AFEAF00A26CD7 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		695F94D22B26E87E00B33E7B /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		695F94D52B26FB2000B33E7B /* RoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewModel.swift; sourceTree = "<group>"; };
@@ -207,7 +208,7 @@
 				6915E8402B24C5060031EBEC /* RealmSwift in Frameworks */,
 				6915E83E2B24C5060031EBEC /* Realm in Frameworks */,
 				69046E242B220FE900764D1A /* Alamofire in Frameworks */,
-				69A20CCE2B37F3BF00FECAD3 /* UnityFramework.framework in Frameworks */,
+				69318D3F2B38326000E22D54 /* UnityFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +662,7 @@
 		69EF496B2B07B486003DF6A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69318D3E2B38326000E22D54 /* UnityFramework.framework */,
 				69A20CCD2B37F3BF00FECAD3 /* UnityFramework.framework */,
 				69EF49702B07B493003DF6A9 /* UnityDriver.framework */,
 				69EF49712B07B493003DF6A9 /* VuforiaEngine.framework */,
@@ -1067,6 +1069,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YHT;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "AR을 사용하기 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1082,6 +1086,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yht-health.YHT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1100,6 +1107,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YHT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = YHT;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "AR을 사용하기 위해 카메라에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1115,6 +1124,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yht-health.YHT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -73,9 +73,6 @@ struct DiaryView: View {
             .onAppear {
                 diaryViewModel.getDiaryList(date: getCurrentMonth(date: diaryViewModel.currentDate))
             }
-            .alert("불러오기에 실패했습니다.", isPresented: $diaryViewModel.getDiaryFail) {
-                Button("확인", role: .none){}
-            }
             .padding(.horizontal, 15)
         }
     }

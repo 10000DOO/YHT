@@ -259,7 +259,7 @@ struct ReviewView: View {
                     reviewViewModel.reviewButtonClicked()
                     reviewViewModel.isGptSuccess = true
                 }) {
-                    Text("추천 받기")
+                    Text("피드백 받기")
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
@@ -272,7 +272,7 @@ struct ReviewView: View {
                 if reviewViewModel.isGptSuccess {
                     VStack(spacing: 20, content: {
                         HStack {
-                            Text("추천 결과")
+                            Text("피드백 결과")
                                 .padding(.leading, 20)
                                 .font(.system(size: 25))
                                 .fontWeight(.bold)
