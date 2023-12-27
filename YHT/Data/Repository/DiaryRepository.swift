@@ -145,8 +145,8 @@ class DiaryRepository: DiaryRepositoryProtocol {
         }.eraseToAnyPublisher()
     }
     
-    func deleteDiary(diaryId: Int, accessToken: String?) -> AnyPublisher<DiaryDeleteResponse, ErrorResponse> {
-        return Future<DiaryDeleteResponse, ErrorResponse> { promise in
+    func deleteDiary(diaryId: Int, accessToken: String?) -> AnyPublisher<CommonSuccessResInt, ErrorResponse> {
+        return Future<CommonSuccessResInt, ErrorResponse> { promise in
             AF.request(ServerInfo.serverURL + "/diary/delete/\(diaryId)",
                        method: .patch,
                        headers: ["Content-Type": "application/json", "Authorization" : accessToken!])
@@ -154,7 +154,7 @@ class DiaryRepository: DiaryRepositoryProtocol {
                 switch response.result {
                 case .success(let data):
                     do {
-                        let deleteSuccess = try JSONDecoder().decode(DiaryDeleteResponse.self, from: data)
+                        let deleteSuccess = try JSONDecoder().decode(CommonSuccessResInt.self, from: data)
                         promise(.success(deleteSuccess))
                     } catch {
                         if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {

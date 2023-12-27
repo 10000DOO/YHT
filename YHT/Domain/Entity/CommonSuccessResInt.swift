@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DiaryDeleteResponse: Codable {
+struct CommonSuccessResInt: Codable {
     var status: Int
     var data: Int
 }

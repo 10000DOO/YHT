@@ -19,4 +19,6 @@ protocol MemberRepositoryProtocol {
     func changePassword(changePasswordRequest: ChangePasswordRequest) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
     
     func reIssueToken(accessToken: String?, refreshToken: String?) -> AnyPublisher<SignInResponse, ErrorResponse>
+    
+    func deleteMember(accessToken: String?) -> AnyPublisher<CommonSuccessResInt, ErrorResponse>
 }

@@ -162,4 +162,31 @@ class MemberRepository: MemberRepositoryProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func deleteMember(accessToken: String?) -> AnyPublisher<CommonSuccessResInt, ErrorResponse> {
+        return Future<CommonSuccessResInt, ErrorResponse> { promise in
+            AF.request(ServerInfo.serverURL + "/member/delete",
+                       method: .patch,
+                       headers: ["Content-Type": "application/json", "Authorization" : accessToken!])
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let deleteSuccess = try JSONDecoder().decode(CommonSuccessResInt.self, from: data)
+                        promise(.success(deleteSuccess))
+                    } catch {
+                        if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                            promise(.failure(errorResponse))
+                        } else {
+                            let defaultError = ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                            promise(.failure(defaultError))
+                        }
+                    }
+                case .failure(let error):
+                    let customError = ErrorResponse(status: error.responseCode ?? 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])
+                    promise(.failure(customError))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

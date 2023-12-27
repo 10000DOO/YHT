@@ -17,5 +17,5 @@ protocol DiaryRepositoryProtocol {
     
     func modifyDiary(modifyDiaryRequest: ModifyDiaryRequest, accessToken: String?, diaryId: Int) -> AnyPublisher<CommonSuccessRes, ErrorResponse>
     
-    func deleteDiary(diaryId: Int, accessToken: String?) -> AnyPublisher<DiaryDeleteResponse, ErrorResponse>
+    func deleteDiary(diaryId: Int, accessToken: String?) -> AnyPublisher<CommonSuccessResInt, ErrorResponse>
 }

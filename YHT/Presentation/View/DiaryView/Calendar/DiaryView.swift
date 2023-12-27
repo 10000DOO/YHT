@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiaryView: View {
     @ObservedObject private var diaryViewModel: DiaryViewModel
+    @State private var deleteMember = false
     init(diaryViewModel: DiaryViewModel) {
         self.diaryViewModel = diaryViewModel
     }
@@ -16,11 +17,34 @@ struct DiaryView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image("Logo")
-                    .resizable()
-                    .frame(width: 180, height: 90)
-                    .padding(.bottom, 50)
-                    .padding(.top, 20)
+                HStack {
+                    Spacer()
+                    Spacer()
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: 180, height: 90, alignment: .center)
+                        .padding(.bottom, 50)
+                        .padding(.top, 20)
+                        .padding(.trailing, 18)
+                    
+                    Spacer()
+                    
+                    Menu {
+                        Button("회원 탈퇴", action: {
+                            deleteMember.toggle()
+                        })
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                            .font(.system(size: 30))
+                            .foregroundColor(Color(red: 0.38, green: 0.93, blue: 0.84))
+                    }
+                    .alert("탈퇴하시겠습니까?", isPresented: $deleteMember) {
+                        Button("아니오", role: .cancel) {}
+                        Button("예", role: .destructive) {
+                            diaryViewModel.deleteMember()
+                        }
+                    }
+                }
                 
                 ScrollView {
                     HStack(spacing: 30, content: {
@@ -68,6 +92,9 @@ struct DiaryView: View {
                 }
             }
             .fullScreenCover(isPresented: $diaryViewModel.refreshTokenExpired) {
+                SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
+            }
+            .fullScreenCover(isPresented: $diaryViewModel.memberDeleted) {
                 SignInView(signInViewModel: SignInViewModel(memberService: MemberService(memberRepository: MemberRepository())))
             }
             .onAppear {

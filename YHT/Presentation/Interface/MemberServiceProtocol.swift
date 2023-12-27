@@ -23,4 +23,6 @@ protocol MemberServiceProtocol {
     func changePassowrd(password: String, email: String) -> AnyPublisher<Bool, ErrorResponse>
     
     func issueNewToken() -> AnyPublisher<Bool, ErrorResponse>
+    
+    func deleteDiary() -> AnyPublisher<Bool, ErrorResponse>
 }
