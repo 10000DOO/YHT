@@ -50,6 +50,7 @@
 		697B0F1D2B2EED4A0067382F /* DiaryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697B0F1C2B2EED4A0067382F /* DiaryServiceProtocol.swift */; };
 		6986C6282B26385D000BCAA9 /* ChangePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */; };
 		698ACCBE2B2C483C001F11F3 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698ACCBD2B2C483C001F11F3 /* ReviewViewModel.swift */; };
+		699606062B4285500066EB85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 699606052B4285500066EB85 /* README.md */; };
 		699872E32B2571F300E411E3 /* FindIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E22B2571F300E411E3 /* FindIdView.swift */; };
 		699872E62B25729400E411E3 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E52B25729400E411E3 /* FindIdViewModel.swift */; };
 		699872EA2B25768A00E411E3 /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699872E92B25768A00E411E3 /* FindPwView.swift */; };
@@ -159,6 +160,7 @@
 		697B0F1C2B2EED4A0067382F /* DiaryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryServiceProtocol.swift; sourceTree = "<group>"; };
 		6986C6272B26385D000BCAA9 /* ChangePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRequest.swift; sourceTree = "<group>"; };
 		698ACCBD2B2C483C001F11F3 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		699606052B4285500066EB85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		699872E22B2571F300E411E3 /* FindIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdView.swift; sourceTree = "<group>"; };
 		699872E52B25729400E411E3 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		699872E92B25768A00E411E3 /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		69B362962B07B37400714B3B = {
 			isa = PBXGroup;
 			children = (
+				699606052B4285500066EB85 /* README.md */,
 				69EF49782B07B5D7003DF6A9 /* Vuforia */,
 				69B362A12B07B37400714B3B /* YHT */,
 				69B362B22B07B37500714B3B /* YHTTests */,
@@ -811,6 +814,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699606062B4285500066EB85 /* README.md in Resources */,
 				69EF49772B07B588003DF6A9 /* Launch Screen.storyboard in Resources */,
 				69B362AA2B07B37500714B3B /* Preview Assets.xcassets in Resources */,
 				69B362A72B07B37500714B3B /* Assets.xcassets in Resources */,
@@ -1083,7 +1087,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yht-health.YHT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1121,7 +1125,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yht-health.YHT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
