@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 class Query {
-
     static func insertToken(accessToken: TokenData, refreshToken: TokenData) -> ErrorResponse? {
         let realm = RealmManager.shared.realm
 
@@ -33,4 +32,3 @@ class Query {
         }
     }
 }
-
