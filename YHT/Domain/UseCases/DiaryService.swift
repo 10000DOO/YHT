@@ -18,7 +18,8 @@ class DiaryService: DiaryServiceProtocol {
     
     func getDiaryList(date: String) -> AnyPublisher<CalendarDetails, ErrorResponse> {
         return Future<CalendarDetails, ErrorResponse> { [weak self] promise in
-            self?.diaryRepository.getDiaryList(date: date, accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.diaryRepository.getDiaryList(date: date, accessToken: accessToken)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -34,7 +35,8 @@ class DiaryService: DiaryServiceProtocol {
     
     func getDiaryDetail(date: String) -> AnyPublisher<DiaryData, ErrorResponse> {
         return Future<DiaryData, ErrorResponse> { [weak self] promise in
-            self?.diaryRepository.getDiaryDetail(date: date, accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.diaryRepository.getDiaryDetail(date: date, accessToken: accessToken)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -50,7 +52,8 @@ class DiaryService: DiaryServiceProtocol {
     
     func addDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String) -> AnyPublisher<Bool, ErrorResponse> {
         return Future<Bool, ErrorResponse> { [weak self] promise in
-            self?.diaryRepository.addDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.diaryRepository.addDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: accessToken)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -66,7 +69,8 @@ class DiaryService: DiaryServiceProtocol {
     
     func modifyDiary(exerciseInfos: [ExerciseInfo], review: String, exerciseDate: String, diaryId: Int) -> AnyPublisher<Bool, ErrorResponse> {
         return Future<Bool, ErrorResponse> { [weak self] promise in
-            self?.diaryRepository.modifyDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent, diaryId: diaryId)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.diaryRepository.modifyDiary(modifyDiaryRequest: ModifyDiaryRequest(exerciseInfo: exerciseInfos, review: review, exerciseDate: exerciseDate), accessToken: accessToken, diaryId: diaryId)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -82,7 +86,8 @@ class DiaryService: DiaryServiceProtocol {
     
     func deleteDiary(diaryId: Int) -> AnyPublisher<Bool, ErrorResponse> {
         return Future<Bool, ErrorResponse> { [weak self] promise in
-            self?.diaryRepository.deleteDiary(diaryId: diaryId, accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.diaryRepository.deleteDiary(diaryId: diaryId, accessToken: accessToken)
                 .sink { completion in
                     switch completion {
                     case .finished:

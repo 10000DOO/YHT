@@ -38,7 +38,9 @@
 		695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */; };
 		695F94E22B27760400B33E7B /* GPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E12B27760400B33E7B /* GPTService.swift */; };
 		695F94E42B2776D400B33E7B /* GPTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */; };
+		695FA8482B66984F005A7BE2 /* EmailServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FA8472B66984F005A7BE2 /* EmailServiceTest.swift */; };
 		69652C292B37D48D00837636 /* CommonSuccessResInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69652C282B37D48D00837636 /* CommonSuccessResInt.swift */; };
+		6976E4B22B81FAEA006D84E1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6976E4B12B81FAEA006D84E1 /* KeychainManager.swift */; };
 		6978E8BD2B280C9100FA7CA0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BC2B280C9100FA7CA0 /* DietView.swift */; };
 		6978E8C02B280CC600FA7CA0 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */; };
 		6978E8C22B28175900FA7CA0 /* DietRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978E8C12B28175900FA7CA0 /* DietRequest.swift */; };
@@ -148,7 +150,9 @@
 		695F94DF2B2775C600B33E7B /* GPTRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepositoryProtocol.swift; sourceTree = "<group>"; };
 		695F94E12B27760400B33E7B /* GPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTService.swift; sourceTree = "<group>"; };
 		695F94E32B2776D400B33E7B /* GPTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTServiceProtocol.swift; sourceTree = "<group>"; };
+		695FA8472B66984F005A7BE2 /* EmailServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailServiceTest.swift; sourceTree = "<group>"; };
 		69652C282B37D48D00837636 /* CommonSuccessResInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSuccessResInt.swift; sourceTree = "<group>"; };
+		6976E4B12B81FAEA006D84E1 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		6978E8BC2B280C9100FA7CA0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		6978E8BF2B280CC600FA7CA0 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		6978E8C12B28175900FA7CA0 /* DietRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRequest.swift; sourceTree = "<group>"; };
@@ -335,6 +339,22 @@
 			path = GPT;
 			sourceTree = "<group>";
 		};
+		695FA8452B669817005A7BE2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				695FA8462B66981E005A7BE2 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		695FA8462B66981E005A7BE2 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				695FA8472B66984F005A7BE2 /* EmailServiceTest.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		6978E8BB2B280C7300FA7CA0 /* Diet */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +498,7 @@
 		69B362B22B07B37500714B3B /* YHTTests */ = {
 			isa = PBXGroup;
 			children = (
+				695FA8452B669817005A7BE2 /* Domain */,
 				69B362B32B07B37500714B3B /* YHTTests.swift */,
 			);
 			path = YHTTests;
@@ -509,6 +530,7 @@
 				69AD839F2B10942300448107 /* ViewExtension.swift */,
 				69046E112B21BDA200764D1A /* ErrorMessage.swift */,
 				697B0F172B2EDC480067382F /* RealmManager.swift */,
+				6976E4B12B81FAEA006D84E1 /* KeychainManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -866,6 +888,7 @@
 				697B0F0E2B2EBB420067382F /* DiaryRepository.swift in Sources */,
 				69652C292B37D48D00837636 /* CommonSuccessResInt.swift in Sources */,
 				695F94DB2B27743E00B33E7B /* GPTRepository.swift in Sources */,
+				6976E4B22B81FAEA006D84E1 /* KeychainManager.swift in Sources */,
 				69046E182B22099F00764D1A /* ErrorResponse.swift in Sources */,
 				695F94E02B2775C600B33E7B /* GPTRepositoryProtocol.swift in Sources */,
 				69182DB52B304E5E006DC5F1 /* CalendarGridView.swift in Sources */,
@@ -913,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695FA8482B66984F005A7BE2 /* EmailServiceTest.swift in Sources */,
 				69B362B42B07B37500714B3B /* YHTTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

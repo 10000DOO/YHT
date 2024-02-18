@@ -58,17 +58,19 @@ class MemberService: MemberServiceProtocol {
                 } receiveValue: { response in
                     UserDefaults.standard.set(response.data.username, forKey: "username")
                     
-                    let accessToken = TokenData()
-                    let refreshToken = TokenData()
-                    accessToken.tokenName = "accessToken"
-                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
-                    refreshToken.tokenName = "refreshToken"
-                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
-                    
-                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
-                    if result != nil {
-                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
-                    }
+//                    let accessToken = TokenData()
+//                    let refreshToken = TokenData()
+//                    accessToken.tokenName = "accessToken"
+//                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
+//                    refreshToken.tokenName = "refreshToken"
+//                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
+//                    
+//                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
+                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.accessToken)]", key: "accessToken")
+                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.refreshToken)]", key: "refreshToken")
+//                    if result != nil {
+//                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
+//                    }
                     promise(.success(response.data.username))
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
@@ -108,7 +110,10 @@ class MemberService: MemberServiceProtocol {
     
     func issueNewToken() -> AnyPublisher<Bool, ErrorResponse> {
         return Future<Bool, ErrorResponse> { [weak self] promise in
-            self?.memberRepository.reIssueToken(accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent, refreshToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "refreshToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            let refreshToken = try? KeychainManager.searchItemFromKeychain(key: "refreshToken")
+            
+            self?.memberRepository.reIssueToken(accessToken: accessToken, refreshToken: refreshToken)
                 .sink { completion in
                     switch completion {
                     case .finished:
@@ -121,17 +126,19 @@ class MemberService: MemberServiceProtocol {
                 } receiveValue: { response in
                     UserDefaults.standard.set(response.data.username, forKey: "username")
                     
-                    let accessToken = TokenData()
-                    let refreshToken = TokenData()
-                    accessToken.tokenName = "accessToken"
-                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
-                    refreshToken.tokenName = "refreshToken"
-                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
-                    
-                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
-                    if result != nil {
-                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
-                    }
+//                    let accessToken = TokenData()
+//                    let refreshToken = TokenData()
+//                    accessToken.tokenName = "accessToken"
+//                    accessToken.tokenContent = "Bearer[\(response.data.accessToken)]"
+//                    refreshToken.tokenName = "refreshToken"
+//                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
+//                    
+//                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
+                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.accessToken)]", key: "accessToken")
+                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.refreshToken)]", key: "refreshToken")
+//                    if result != nil {
+//                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
+//                    }
                     promise(.success(true))
                 }.store(in: &self!.cancellables)
         }.eraseToAnyPublisher()
@@ -139,7 +146,8 @@ class MemberService: MemberServiceProtocol {
     
     func deleteDiary() -> AnyPublisher<Bool, ErrorResponse> {
         return Future<Bool, ErrorResponse> { [weak self] promise in
-            self?.memberRepository.deleteMember(accessToken: RealmManager.shared.realm.objects(TokenData.self).filter("tokenName == %@", "accessToken").first?.tokenContent)
+            let accessToken = try? KeychainManager.searchItemFromKeychain(key: "accessToken")
+            self?.memberRepository.deleteMember(accessToken: accessToken)
                 .sink { completion in
                     switch completion {
                     case .finished:
