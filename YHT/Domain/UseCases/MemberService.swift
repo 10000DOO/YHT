@@ -66,6 +66,8 @@ class MemberService: MemberServiceProtocol {
 //                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
 //                    
 //                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
+                    KeychainManager.deleteItemFromKeychain(key: "accessToken")
+                    KeychainManager.deleteItemFromKeychain(key: "refreshToken")
                     KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.accessToken)]", key: "accessToken")
                     KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.refreshToken)]", key: "refreshToken")
 //                    if result != nil {
@@ -134,8 +136,8 @@ class MemberService: MemberServiceProtocol {
 //                    refreshToken.tokenContent = "Bearer[\(response.data.refreshToken)]"
 //                    
 //                    let result = Query.insertToken(accessToken: accessToken, refreshToken: refreshToken)
-                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.accessToken)]", key: "accessToken")
-                    KeychainManager.addItemsOnKeyChain(token: "Bearer[\(response.data.refreshToken)]", key: "refreshToken")
+                    KeychainManager.updateItemOnKeyChain(token: "Bearer[\(response.data.accessToken)]", key: "accessToken")
+                    KeychainManager.updateItemOnKeyChain(token: "Bearer[\(response.data.refreshToken)]", key: "refreshToken")
 //                    if result != nil {
 //                        promise(.failure(ErrorResponse(status: 500, error: [ErrorDetail(error: ErrorMessage.serverError.rawValue)])))
 //                    }

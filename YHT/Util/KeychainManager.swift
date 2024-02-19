@@ -79,4 +79,25 @@ class KeychainManager {
             //print("not finished update")
         }
     }
+    
+    static func deleteItemFromKeychain(key: String) {
+        // 삭제할 아이템에 대한 쿼리 생성
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key
+        ]
+        
+        // Keychain에서 아이템 삭제
+        let status = SecItemDelete(query as CFDictionary)
+        
+        // 삭제 결과에 따른 처리
+        if status == errSecSuccess {
+            //print("Item deleted successfully from Keychain")
+        } else if status == errSecItemNotFound {
+            //print("Item not found in Keychain")
+        } else {
+            //print("Error deleting item from Keychain")
+        }
+    }
+
 }
